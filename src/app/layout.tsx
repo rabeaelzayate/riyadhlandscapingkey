@@ -1,0 +1,109 @@
+import type { Metadata } from "next";
+import { IBM_Plex_Sans_Arabic, Inter } from "next/font/google";
+import "./globals.css";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { company } from "@/data/company";
+
+const ibmArabic = IBM_Plex_Sans_Arabic({
+  subsets: ["arabic"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-ibm-arabic",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://zahret-al-wurood.com"),
+  title: {
+    default: "زهرة الورود لتنسيق الحدائق بالرياض | تصميم وتنسيق وصيانة الحدائق",
+    template: "%s | زهرة الورود بالرياض",
+  },
+  description:
+    "مؤسسة زهرة الورود لتنسيق الحدائق بالرياض — أفضل شركة تصميم وتنفيذ حدائق الفلل والمنازل بالرياض، توريد وتركيب عشب صناعي وثيل طبيعي، شبكات ري أوتوماتيكية، وشلالات ونوافير مودرن. اتصل بنا: 0560877272 / +966560877272",
+  keywords: [
+    "تنسيق حدائق بالرياض",
+    "شركة تنسيق حدائق بالرياض",
+    "تصميم حدائق بالرياض",
+    "صيانة حدائق بالرياض",
+    "تنسيق حدائق منزلية بالرياض",
+    "عشب صناعي بالرياض",
+    "ثيل طبيعي بالرياض",
+    "شبكات ري بالرياض",
+    "شلالات ونوافير بالرياض",
+    "زهرة الورود بالرياض",
+    "حدائق فلل الرياض",
+    "مظلات وبرجولات الرياض",
+  ],
+  authors: [{ name: company.nameAr }],
+  creator: company.nameAr,
+  publisher: company.nameAr,
+  icons: {
+    icon: "/images/logo-transparent.png",
+    apple: "/images/logo-transparent.png",
+  },
+  alternates: {
+    canonical: "./",
+  },
+  category: "Landscaping & Architecture",
+  formatDetection: {
+    telephone: true,
+    address: true,
+    email: true,
+  },
+  openGraph: {
+    title: "زهرة الورود لتنسيق الحدائق بالرياض | تصميم وتنسيق وصيانة الحدائق",
+    description:
+      "تنسيق حدائق منزلية وفلل واستراحات بالرياض، تركيب عشب صناعي وثيل طبيعي وشبكات ري ونوافير باحترافية تليق بمساحتك.",
+    url: "https://zahret-al-wurood.com",
+    locale: "ar_SA",
+    type: "website",
+    siteName: company.nameAr,
+    images: [
+      {
+        url: "/images/hero/hero-landscaping.jpg",
+        width: 1200,
+        height: 630,
+        alt: "زهرة الورود لتنسيق الحدائق بالرياض",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "زهرة الورود لتنسيق الحدائق بالرياض",
+    description: "تصميم وتنفيذ وصيانة الحدائق والعشب الصناعي والطبيعي وشبكات الري بالرياض.",
+    images: ["/images/hero/hero-landscaping.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="ar" dir="rtl" className={`${ibmArabic.variable} ${inter.variable}`}>
+      <head>
+        <JsonLd />
+      </head>
+      <body className="antialiased font-sans bg-[#fcfbf7] text-gray-800">
+        {children}
+      </body>
+    </html>
+  );
+}

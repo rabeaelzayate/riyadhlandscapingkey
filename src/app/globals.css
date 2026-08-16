@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gray-600: #6b7280;
+  --color-gray-500: #6b7280;
+  --color-gray-700: #6b7280;
+  --color-muted-foreground: #6b7280;
+}
+
+@layer base {
+  :root {
+    --lightningcss-light: initial;
+    --lightningcss-dark: ;
+    color-scheme: light;
+    --brand-green: #2e7d32;
+    --brand-forest: #1b4332;
+    --brand-gold: #c89b3c;
+    --brand-gold-light: #e7c96a;
+    --brand-sand: #d6c29a;
+    --brand-ivory: #f8f7f2;
+    --brand-charcoal: #222;
+    --brand-gray: #6b7280;
+    --background: #f8f7f2;
+    --foreground: #222;
+    --card: #fff;
+    --card-foreground: #222;
+    --popover: #fff;
+    --popover-foreground: #222;
+    --primary: #2e7d32;
+    --primary-foreground: #fff;
+    --secondary: #d6c29a;
+    --secondary-foreground: #1b4332;
+    --muted: #eef0ea;
+    --muted-foreground: #6b7280;
+    --accent: #c89b3c;
+    --accent-foreground: #1b4332;
+    --destructive: #b3261e;
+    --border: #e6e3da;
+    --input: #e6e3da;
+    --ring: #2e7d32;
+    --radius: 18px 0 18px 0;
+    --font-latin: var(--font-inter), "Inter Fallback", system-ui, sans-serif;
+
+    /* Legacy mapping for existing component compatibility */
+    --bg-primary: var(--background);
+    --text-main: var(--foreground);
+    --garden-dark: var(--brand-forest);
+    --garden-medium: var(--brand-green);
+    --emerald-brand: var(--brand-green);
+    --emerald-accent: var(--brand-green);
+    --gold-accent: var(--brand-gold);
+    --rose-subtle: #fff5f7;
+    --rose-border: var(--border);
+    --rose-accent: var(--brand-gold);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-ibm-arabic), system-ui, -apple-system, sans-serif;
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  /* Subtitle / Description directly under headings */
+  h1 + p,
+  h2 + p,
+  h3 + p,
+  .font-latin,
+  .heading-desc,
+  .section-subtitle {
+    font-family: var(--font-latin);
+  }
+
+  /* Accessible focus indicator */
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+  }
+
+  /* Custom scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--muted);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--brand-green);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--brand-forest);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom pattern utilities */
+.bg-leaf-pattern {
+  background-image: radial-gradient(#2e7d32 0.75px, transparent 0.75px), radial-gradient(#2e7d32 0.75px, #f8f7f2 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+  opacity: 0.04;
+}
+
+/* Custom brand radius utility */
+.brand-radius {
+  border-radius: var(--radius);
+}
