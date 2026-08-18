@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { IBM_Plex_Sans_Arabic, Inter } from "next/font/google";
 import "./globals.css";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { Preloader } from "@/components/ui/Preloader";
 import { company } from "@/data/company";
 
 const ibmArabic = IBM_Plex_Sans_Arabic({
@@ -102,6 +103,7 @@ export default function RootLayout({
         <JsonLd />
       </head>
       <body className="antialiased font-sans bg-[#fcfbf7] text-gray-800">
+        <Preloader />
         {children}
       </body>
     </html>
