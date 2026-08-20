@@ -22,6 +22,7 @@ import {
 import { Logo } from "@/components/ui/Logo";
 import { company } from "@/data/company";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { InstallButton } from "@/components/pwa/InstallButton";
 
 interface MegaMenuTab {
   id: string;
@@ -358,6 +359,8 @@ export const Header: React.FC = () => {
 
             {/* Left Action Buttons & Promo Badges (Desktop) */}
             <div className="hidden lg:flex items-center gap-3">
+              <InstallButton variant="header" className="hidden xl:inline-flex" />
+
               <a
                 href={getWhatsAppUrl("مرحبًا، أرغب في طلب معاينة مجانية والحصول على خصم 10%.")}
                 target="_blank"
@@ -496,6 +499,11 @@ export const Header: React.FC = () => {
                   <span className="font-extrabold text-base">{link.name}</span>
                 </Link>
               ))}
+
+              {/* Install PWA Mobile App Button */}
+              <div className="pt-2">
+                <InstallButton variant="drawer" />
+              </div>
 
             </nav>
           </div>

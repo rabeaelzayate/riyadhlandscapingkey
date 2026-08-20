@@ -1,8 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Sans_Arabic, Inter } from "next/font/google";
 import "./globals.css";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Preloader } from "@/components/ui/Preloader";
+import { PwaRegister } from "@/components/pwa/PwaRegister";
+import { InstallBanner } from "@/components/pwa/InstallBanner";
 import { company } from "@/data/company";
 
 const ibmArabic = IBM_Plex_Sans_Arabic({
@@ -18,8 +20,23 @@ const inter = Inter({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  themeColor: "#064e3b",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://zahret-al-wurood.com"),
+  applicationName: "زهرة الورود",
+  manifest: "/manifest.webmanifest",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "زهرة الورود",
+  },
   title: {
     default: "زهرة الورود لتنسيق الحدائق بالرياض | تصميم وتنسيق وصيانة الحدائق",
     template: "%s | زهرة الورود بالرياض",
@@ -44,8 +61,14 @@ export const metadata: Metadata = {
   creator: company.nameAr,
   publisher: company.nameAr,
   icons: {
-    icon: "/images/logo-transparent.png",
-    apple: "/images/logo-transparent.png",
+    icon: [
+      { url: "/icons/icon-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icons/icon-512x512.png", sizes: "512x512", type: "image/png" },
+      { url: "/icons/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
   alternates: {
     canonical: "./",
@@ -101,10 +124,19 @@ export default function RootLayout({
     <html lang="ar" dir="rtl" className={`${ibmArabic.variable} ${inter.variable}`}>
       <head>
         <JsonLd />
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="زهرة الورود" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="theme-color" content="#064e3b" />
+        <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
       </head>
       <body className="antialiased font-sans bg-[#fcfbf7] text-gray-800">
         <Preloader />
+        <PwaRegister />
         {children}
+        <InstallBanner />
       </body>
     </html>
   );

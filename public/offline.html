@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>غير متصل بالإنترنت | زهرة الورود لتنسيق الحدائق</title>
+  <meta name="theme-color" content="#064e3b">
+  <link rel="icon" href="/icons/icon-192x192.png">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    body {
+      background-color: #0b2014;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 36px 24px;
+      max-width: 440px;
+      width: 100%;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    .icon-wrap {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(245, 158, 11, 0.15);
+      border: 2px solid rgba(245, 158, 11, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 36px;
+    }
+    h1 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 14px;
+      color: #d1fae5;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 20px;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: #f59e0b;
+      color: #022c22;
+    }
+    .btn-primary:hover {
+      background: #fbbf24;
+    }
+    .btn-secondary {
+      background: #064e3b;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .btn-secondary:hover {
+      background: #047857;
+    }
+    .btn-call {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+    }
+    .btn-call:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    .logo-subtitle {
+      font-size: 12px;
+      color: #6ee7b7;
+      margin-top: 20px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon-wrap">🌿</div>
+    <h1>أنت غير متصل بالإنترنت</h1>
+    <p>يبدو أن هناك مشكلة في اتصالك بالإنترنت. يمكنك إعادة المحاولة عند توفر الشبكة أو الاتصال بنا مباشرة هاتفياً.</p>
+    
+    <div class="btn-group">
+      <button onclick="window.location.reload()" class="btn btn-primary">
+        <span>🔄 إعادة المحاولة</span>
+      </button>
+      <a href="tel:0560877272" class="btn btn-secondary">
+        <span>📞 اتصال مباشر (0560877272)</span>
+      </a>
+      <a href="https://wa.me/966560877272" class="btn btn-call">
+        <span>💬 تواصل عبر واتساب</span>
+      </a>
+    </div>
+
+    <div class="logo-subtitle">
+      مؤسسة زهرة الورود لتنسيق الحدائق بالرياض
+    </div>
+  </div>
+</body>
+</html>

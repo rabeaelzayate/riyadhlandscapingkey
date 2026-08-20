@@ -3,6 +3,7 @@ import { Phone, Mail, MapPin, MessageCircle, Clock, Navigation } from "lucide-re
 import { Logo } from "@/components/ui/Logo";
 import { company } from "@/data/company";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { InstallButton } from "@/components/pwa/InstallButton";
 
 export const Footer: React.FC = () => {
   const quickLinks = [
@@ -52,6 +53,10 @@ export const Footer: React.FC = () => {
                 <MapPin className="w-4 h-4 text-amber-400 flex-shrink-0" />
                 <span>{company.address}</span>
               </div>
+            </div>
+
+            <div className="mt-5">
+              <InstallButton variant="footer" />
             </div>
           </div>
 
