@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Clock, Calendar, ArrowLeft, BookOpen, Sparkles } from "lucide-react";
+import { Clock, Calendar, ArrowLeft, BookOpen } from "lucide-react";
 import { articlesData } from "@/data/articles";
 
 export const ArticlesSection: React.FC = () => {

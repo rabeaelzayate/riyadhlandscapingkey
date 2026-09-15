@@ -4,9 +4,9 @@ export const dynamic = "force-static";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "مؤسسة زهرة الورود لتنسيق الحدائق بالرياض",
-    short_name: "زهرة الورود",
-    description: "تصميم وتنفيذ وتنسيق الحدائق، تركيب العشب الصناعي والطبيعي، الشلالات وشبكات الري بالرياض.",
+    name: "مؤسسة مفتاح التنسيق لتنسيق الحدائق بالسعودية",
+    short_name: "مفتاح التنسيق",
+    description: "تصميم وتنفيذ وتنسيق الحدائق، تركيب العشب الصناعي والطبيعي، الشلالات وشبكات الري بالسعودية.",
     start_url: "/",
     display: "standalone",
     background_color: "#0b2014",

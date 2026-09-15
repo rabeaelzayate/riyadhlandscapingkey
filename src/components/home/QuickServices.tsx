@@ -1,5 +1,6 @@
 import React from "react";
-import { Trees, Sparkles, Flower2, Droplets, Waves, Scissors, ArrowLeft } from "lucide-react";
+import Link from "next/link";
+import { Trees, Layers, Flower2, Droplets, Waves, Scissors, ArrowLeft, Eye } from "lucide-react";
 import { quickServicesData } from "@/data/services";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 
@@ -8,8 +9,8 @@ export const QuickServices: React.FC = () => {
     switch (iconName) {
       case "Trees":
         return <Trees className="w-6 h-6 text-emerald-700" />;
-      case "Sparkles":
-        return <Sparkles className="w-6 h-6 text-emerald-700" />;
+      case "Layers":
+        return <Layers className="w-6 h-6 text-emerald-700" />;
       case "Flower2":
         return <Flower2 className="w-6 h-6 text-emerald-700" />;
       case "Droplets":
@@ -55,7 +56,9 @@ export const QuickServices: React.FC = () => {
 
                 {/* Service Name */}
                 <h3 className="text-lg font-bold text-emerald-950 mb-2 group-hover:text-emerald-800 transition-colors">
-                  {item.title}
+                  <Link href={`/services/${item.id}/`} className="hover:underline">
+                    {item.title}
+                  </Link>
                 </h3>
 
                 {/* Description */}
@@ -64,13 +67,21 @@ export const QuickServices: React.FC = () => {
                 </p>
               </div>
 
-              {/* Action Link */}
-              <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
+              {/* Action Links */}
+              <div className="pt-4 border-t border-gray-100 flex items-center gap-2">
+                <Link
+                  href={`/services/${item.id}/`}
+                  className="inline-flex items-center justify-center gap-1 py-2 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-900 text-xs font-bold border border-emerald-200/60 transition-colors whitespace-nowrap"
+                >
+                  <Eye className="w-3.5 h-3.5 text-emerald-700" />
+                  <span>التفاصيل</span>
+                </Link>
+
                 <WhatsAppButton
                   variant="outline"
                   size="sm"
                   message={item.whatsappMessage}
-                  className="w-full justify-between border-gray-200 text-gray-700 hover:border-emerald-600 hover:text-emerald-800"
+                  className="flex-1 justify-between border-gray-200 text-gray-700 hover:border-emerald-600 hover:text-emerald-800"
                 >
                   <span>استفسر الآن</span>
                   <ArrowLeft className="w-4 h-4 text-emerald-600 group-hover:-translate-x-1 transition-transform" />

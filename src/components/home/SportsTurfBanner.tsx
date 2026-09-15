@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { Trophy, CheckCircle2, MessageCircle } from "lucide-react";
+import Link from "next/link";
+import { Trophy, CheckCircle2, MessageCircle, ArrowLeft } from "lucide-react";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 
 export const SportsTurfBanner: React.FC = () => {
@@ -13,7 +14,7 @@ export const SportsTurfBanner: React.FC = () => {
             {/* Visual Image */}
             <Image
               src="/images/services/artificial-turf.jpg"
-              alt="توريد وتركيب عشب الملاعب والمساحات الرياضية بالرياض - زهرة الورود"
+              alt="توريد وتركيب عشب الملاعب والمساحات الرياضية - مفتاح التنسيق"
               fill
               sizes="100vw"
               className="object-cover opacity-40"
@@ -47,6 +48,14 @@ export const SportsTurfBanner: React.FC = () => {
                 >
                   اطلب عرض سعر للملاعب
                 </WhatsAppButton>
+
+                <Link
+                  href="/services/artificial-turf/"
+                  className="inline-flex items-center gap-1.5 px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs sm:text-sm font-bold transition-colors"
+                >
+                  <span>مواصفات العشب الصناعي</span>
+                  <ArrowLeft className="w-4 h-4 text-amber-300" />
+                </Link>
 
                 <div className="flex items-center gap-2 text-xs font-semibold text-emerald-200">
                   <CheckCircle2 className="w-4 h-4 text-amber-400" />

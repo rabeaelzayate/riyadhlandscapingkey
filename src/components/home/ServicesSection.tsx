@@ -37,7 +37,7 @@ export const ServicesSection: React.FC = () => {
                 <div className="relative h-60 bg-emerald-950 overflow-hidden">
                   <Image
                     src={service.image}
-                    alt={`${service.title} بالرياض - زهرة الورود`}
+                    alt={`${service.title} - مفتاح التنسيق`}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -46,7 +46,7 @@ export const ServicesSection: React.FC = () => {
 
                   {/* Brand Tag on top-left of image */}
                   <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-emerald-950 text-xs font-extrabold shadow-sm">
-                    زهرة الورود
+                    مفتاح التنسيق
                   </div>
                 </div>
 
@@ -54,7 +54,9 @@ export const ServicesSection: React.FC = () => {
                 <div className="p-6 text-right">
                   {/* Service Title (Arabic Only) */}
                   <h3 className="text-xl font-bold text-emerald-950 mb-3 group-hover:text-emerald-700 transition-colors">
-                    {service.title}
+                    <Link href={`/services/${service.id}/`} className="hover:underline">
+                      {service.title}
+                    </Link>
                   </h3>
 
                   {/* Description */}
@@ -72,7 +74,7 @@ export const ServicesSection: React.FC = () => {
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-800 hover:text-emerald-950 transition-colors whitespace-nowrap"
                 >
                   <Eye className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                  <span>عرض الخدمة</span>
+                  <span>عرض تفاصيل الخدمة</span>
                 </Link>
 
                 {/* 2. طلب الخدمة Button (Clean Single WhatsApp Icon Inline) */}
@@ -91,12 +93,13 @@ export const ServicesSection: React.FC = () => {
 
         {/* Bottom Action Button */}
         <div className="text-center">
-          <a
-            href="#services"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white hover:bg-emerald-50 text-emerald-900 border-2 border-emerald-600/40 text-xs sm:text-sm font-bold shadow-xs hover:shadow-md transition-all"
+          <Link
+            href="/services/"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-emerald-900 hover:bg-emerald-800 text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all"
           >
-            <span>عرض جميع الخدمات</span>
-          </a>
+            <span>استعراض دليل كافة الخدمات (8 خدمات متخصصة)</span>
+            <ArrowLeft className="w-4 h-4 text-amber-400" />
+          </Link>
         </div>
 
       </div>

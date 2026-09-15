@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { Sparkles, Trees } from "lucide-react";
+import { Trees } from "lucide-react";
+import { company } from "@/data/company";
 
 export const Preloader: React.FC = () => {
   const [mounted, setMounted] = useState<boolean>(true);
@@ -58,7 +59,7 @@ export const Preloader: React.FC = () => {
           <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-br from-emerald-900/90 to-emerald-950/90 p-4 border border-amber-400/40 shadow-2xl flex items-center justify-center backdrop-blur-md">
             <Image
               src="/images/logo-transparent.png"
-              alt="زهرة الورود لتنسيق الحدائق بالرياض"
+              alt={`${company.nameAr} ${company.subtitleAr}`}
               width={100}
               height={100}
               priority
@@ -66,21 +67,21 @@ export const Preloader: React.FC = () => {
             />
           </div>
 
-          {/* Sparkle Badge */}
+          {/* Leaf/Tree Badge */}
           <div className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-amber-500 text-emerald-950 flex items-center justify-center shadow-lg border-2 border-emerald-950">
-            <Sparkles className="w-4 h-4 text-emerald-950 animate-spin" style={{ animationDuration: "6s" }} />
+            <Trees className="w-4 h-4 text-emerald-950" />
           </div>
         </div>
 
         {/* Brand Name Typography */}
         <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight mb-1">
-          زهرة الورود
+          {company.nameAr}
         </h2>
 
         {/* Subtitle */}
         <div className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-emerald-300/90 mb-8">
           <Trees className="w-3.5 h-3.5 text-amber-400" />
-          <span>لتنسيق الحدائق بالرياض</span>
+          <span>{company.subtitleAr}</span>
           <Trees className="w-3.5 h-3.5 text-amber-400" />
         </div>
 

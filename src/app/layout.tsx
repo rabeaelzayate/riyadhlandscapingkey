@@ -5,7 +5,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { Preloader } from "@/components/ui/Preloader";
 import { PwaRegister } from "@/components/pwa/PwaRegister";
 import { InstallBanner } from "@/components/pwa/InstallBanner";
-import { company } from "@/data/company";
+import { company, seoKeywords } from "@/data/company";
 
 const ibmArabic = IBM_Plex_Sans_Arabic({
   subsets: ["arabic"],
@@ -29,34 +29,21 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://zahret-al-wurood.com"),
-  applicationName: "زهرة الورود",
+  metadataBase: new URL("https://riyadhlandscapingkey-sa.com"),
+  applicationName: "مفتاح التنسيق للعشب الصناعي والحدائق",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "زهرة الورود",
+    title: "مفتاح التنسيق",
   },
   title: {
-    default: "زهرة الورود لتنسيق الحدائق بالرياض | تصميم وتنسيق وصيانة الحدائق",
-    template: "%s | زهرة الورود بالرياض",
+    default: "مفتاح التنسيق | عشب صناعي وجداري وتنسيق حدائق بالسعودية | الرياض والدمام",
+    template: "%s | مفتاح التنسيق وحدائق الفرسان للعشب الصناعي بالسعودية",
   },
   description:
-    "مؤسسة زهرة الورود لتنسيق الحدائق بالرياض — أفضل شركة تصميم وتنفيذ حدائق الفلل والمنازل بالرياض، توريد وتركيب عشب صناعي وثيل طبيعي، شبكات ري أوتوماتيكية، وشلالات ونوافير مودرن. اتصل بنا: 0560877272 / +966560877272",
-  keywords: [
-    "تنسيق حدائق بالرياض",
-    "شركة تنسيق حدائق بالرياض",
-    "تصميم حدائق بالرياض",
-    "صيانة حدائق بالرياض",
-    "تنسيق حدائق منزلية بالرياض",
-    "عشب صناعي بالرياض",
-    "ثيل طبيعي بالرياض",
-    "شبكات ري بالرياض",
-    "شلالات ونوافير بالرياض",
-    "زهرة الورود بالرياض",
-    "حدائق فلل الرياض",
-    "مظلات وبرجولات الرياض",
-  ],
+    "مؤسسة مفتاح التنسيق لتنسيق الحدائق وتوريد وتركيب العشب الصناعي والجداري، جملة الثيل الصناعي، تزيين جدران الحوش، حصى وبحص الزينة، تصميم الملاعب وشبكات الري بالرياض والدمام. اتصل الآن: 0505661392",
+  keywords: seoKeywords,
   authors: [{ name: company.nameAr }],
   creator: company.nameAr,
   publisher: company.nameAr,
@@ -80,26 +67,26 @@ export const metadata: Metadata = {
     email: true,
   },
   openGraph: {
-    title: "زهرة الورود لتنسيق الحدائق بالرياض | تصميم وتنسيق وصيانة الحدائق",
+    title: "مفتاح التنسيق | عشب صناعي وجداري وتنسيق حدائق بالسعودية | الرياض والدمام",
     description:
-      "تنسيق حدائق منزلية وفلل واستراحات بالرياض، تركيب عشب صناعي وثيل طبيعي وشبكات ري ونوافير باحترافية تليق بمساحتك.",
-    url: "https://zahret-al-wurood.com",
+      "مؤسسة مفتاح التنسيق وحدائق الفرسان للعشب الصناعي — توريد وتركيب عشب صناعي وجداري، جملة ومفرق، ثيل طبيعي، شبكات ري، حصى الزينة وشلالات بالرياض والدمام.",
+    url: "https://riyadhlandscapingkey-sa.com",
     locale: "ar_SA",
     type: "website",
-    siteName: company.nameAr,
+    siteName: "مفتاح التنسيق للعشب الصناعي والحدائق",
     images: [
       {
         url: "/images/hero/hero-landscaping.jpg",
         width: 1200,
         height: 630,
-        alt: "زهرة الورود لتنسيق الحدائق بالرياض",
+        alt: "مفتاح التنسيق وحدائق الفرسان لتنسيق الحدائق والعشب الصناعي بالسعودية",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "زهرة الورود لتنسيق الحدائق بالرياض",
-    description: "تصميم وتنفيذ وصيانة الحدائق والعشب الصناعي والطبيعي وشبكات الري بالرياض.",
+    title: "مفتاح التنسيق | عشب صناعي وجداري وتنسيق حدائق بالسعودية",
+    description: "توريد وتركيب العشب الصناعي والجداري، جملة العشب الصناعي، حصى الزينة وتنسيق الحدائق بالرياض والدمام.",
     images: ["/images/hero/hero-landscaping.jpg"],
   },
   robots: {
@@ -127,7 +114,7 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.webmanifest" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="زهرة الورود" />
+        <meta name="apple-mobile-web-app-title" content="مفتاح التنسيق" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="#064e3b" />
         <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />

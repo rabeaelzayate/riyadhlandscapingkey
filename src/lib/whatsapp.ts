@@ -6,7 +6,7 @@ import { company } from "@/data/company";
  */
 export function getWhatsAppUrl(message?: string): string {
   const rawNumber = company.whatsapp ? company.whatsapp.replace(/[^0-9]/g, "") : "";
-  const defaultText = "مرحبًا، أرغب في الاستفسار عن خدمات تنسيق الحدائق بالرياض لدى زهرة الورود.";
+  const defaultText = "مرحبًا، أرغب في الاستفسار عن خدمات تنسيق الحدائق لدى مفتاح التنسيق.";
   const textToUse = message || defaultText;
 
   if (!rawNumber) {

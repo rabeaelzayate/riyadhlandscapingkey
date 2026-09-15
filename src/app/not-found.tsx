@@ -5,7 +5,7 @@ import Link from "next/link";
 import {
   Home,
   Trees,
-  Sparkles,
+  HelpCircle,
   ArrowRight,
   ArrowLeft,
   Headphones,
@@ -16,6 +16,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFloating } from "@/components/ui/WhatsAppFloating";
 import { PhoneFloating } from "@/components/ui/PhoneFloating";
+import { company } from "@/data/company";
 
 export default function NotFound() {
   const handleGoBack = () => {
@@ -29,21 +30,21 @@ export default function NotFound() {
       title: "تنسيق الحدائق",
       desc: "تصميم وتنسيق المساحات الخارجية والفلل",
       cta: "استكشف الخدمات",
-      href: "/services/",
+      href: "/services",
       icon: <Trees className="w-6 h-6 text-emerald-700" />,
     },
     {
       title: "معرض المشاريع",
-      desc: "شاهد صور وفيديوهات أعمال زهرة الورود",
+      desc: `شاهد صور وفيديوهات أعمال ${company.nameAr}`,
       cta: "عرض المشاريع",
-      href: "/projects/",
+      href: "/projects",
       icon: <ImageIcon className="w-6 h-6 text-emerald-700" />,
     },
     {
       title: "تواصل معنا",
       desc: "اطلب معاينة واستشارة هندسية مجانية",
       cta: "تواصل الآن",
-      href: "/contact/",
+      href: "/contact",
       icon: <Headphones className="w-6 h-6 text-emerald-700" />,
     },
   ];
@@ -64,7 +65,7 @@ export default function NotFound() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/images/404-garden-hero.jpg"
-            alt="404 زهرة الورود لتنسيق الحدائق بالرياض"
+            alt={`404 ${company.nameAr} ${company.subtitleAr}`}
             className="w-full object-cover object-center block"
             style={{
               width: "100%",
@@ -84,7 +85,7 @@ export default function NotFound() {
           
           {/* Status Badge */}
           <div className="inline-flex items-center gap-2 bg-white px-5 py-2 rounded-full border border-amber-400/80 shadow-xs mb-4">
-            <Sparkles className="w-4 h-4 text-emerald-700" />
+            <HelpCircle className="w-4 h-4 text-emerald-700" />
             <span className="text-xs sm:text-sm font-bold text-emerald-950">
               الصفحة غير موجودة
             </span>
@@ -130,10 +131,10 @@ export default function NotFound() {
 
             {/* Secondary Link - All Services */}
             <Link
-              href="/services/"
+              href="/services"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-2xl bg-white hover:bg-emerald-50 text-emerald-950 border-2 border-emerald-900/30 hover:border-emerald-800 font-bold text-sm shadow-xs transition-all active:scale-95"
             >
-              <Sparkles className="w-4.5 h-4.5 text-emerald-700" />
+              <Trees className="w-4.5 h-4.5 text-emerald-700" />
               <span>تصفح خدماتنا</span>
             </Link>
           </div>
@@ -188,7 +189,7 @@ export default function NotFound() {
              ========================================================================= */}
           <div className="flex items-center justify-center gap-2 text-xs sm:text-sm font-extrabold text-emerald-950">
             <span className="text-amber-500">✦</span>
-            <span>زهرة الورود — نزرع الجمال في كل مساحة</span>
+            <span>{company.nameAr} — نزرع الجمال في كل مساحة</span>
             <span className="text-amber-500">✦</span>
           </div>
 

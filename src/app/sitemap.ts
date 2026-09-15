@@ -5,7 +5,7 @@ import { articlesData } from "@/data/articles";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://zahret-al-wurood.com";
+  const baseUrl = "https://riyadhlandscapingkey-sa.com";
   const now = new Date();
 
   const serviceUrls = servicesData.map((service) => ({

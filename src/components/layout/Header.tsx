@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { createPortal } from "react-dom";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -13,7 +12,7 @@ import {
   ChevronDown,
   Gift,
   Trees,
-  Sparkles,
+  Layers,
   Waves,
   Droplets,
   ArrowLeft,
@@ -47,14 +46,14 @@ const megaMenuTabs: MegaMenuTab[] = [
         title: "تنسيق حدائق بالرياض",
         englishTitle: "GARDEN LANDSCAPING",
         image: "/images/services/landscaping.jpg",
-        route: "/services/landscaping/",
+        route: "/services/landscaping",
         message: "مرحبًا، أرغب في الاستفسار عن خدمة تنسيق الحدائق بالرياض.",
       },
       {
         title: "تصميم حدائق ثلاثي الأبعاد",
         englishTitle: "3D GARDEN DESIGN",
         image: "/images/services/design.jpg",
-        route: "/services/garden-design/",
+        route: "/services/garden-design",
         message: "مرحبًا، أرغب في الاستفسار عن تصميم حدائق 3D بالرياض.",
       },
     ],
@@ -62,20 +61,20 @@ const megaMenuTabs: MegaMenuTab[] = [
   {
     id: "grass",
     label: "الثيل والعشب",
-    icon: <Sparkles className="w-4 h-4" />,
+    icon: <Layers className="w-4 h-4" />,
     items: [
       {
         title: "تركيب العشب الصناعي",
         englishTitle: "ARTIFICIAL TURF",
         image: "/images/services/artificial-turf.jpg",
-        route: "/services/artificial-turf/",
+        route: "/services/artificial-turf",
         message: "مرحبًا، أرغب في الاستفسار عن تركيب العشب الصناعي بالرياض.",
       },
       {
         title: "توريد الثيل الطبيعي",
         englishTitle: "NATURAL GRASS",
         image: "/images/services/natural-grass.jpg",
-        route: "/services/natural-grass/",
+        route: "/services/natural-grass",
         message: "مرحبًا، أرغب في الاستفسار عن توريد وتركيب الثيل الطبيعي.",
       },
     ],
@@ -89,14 +88,14 @@ const megaMenuTabs: MegaMenuTab[] = [
         title: "شلالات جدارية مودرن",
         englishTitle: "WALL WATERFALLS",
         image: "/images/services/waterfalls.jpg",
-        route: "/services/waterfalls/",
+        route: "/services/waterfalls",
         message: "مرحبًا، أرغب في الاستفسار عن تصميم وتنفيذ الشلالات الجدارية.",
       },
       {
         title: "زراعة الأشجار والنخيل",
         englishTitle: "TREES & PALMS",
         image: "/images/services/planting.jpg",
-        route: "/services/trees-planting/",
+        route: "/services/trees-planting",
         message: "مرحبًا، أرغب في الاستفسار عن خدمات زراعة الأشجار والنخيل.",
       },
     ],
@@ -110,14 +109,14 @@ const megaMenuTabs: MegaMenuTab[] = [
         title: "شبكات الري الأوتوماتيكية",
         englishTitle: "SMART IRRIGATION",
         image: "/images/services/irrigation.jpg",
-        route: "/services/irrigation-systems/",
+        route: "/services/irrigation-systems",
         message: "مرحبًا، أرغب في الاستفسار عن تركيب شبكات الري بالرياض.",
       },
       {
         title: "صيانة وتقليم الحدائق",
         englishTitle: "GARDEN MAINTENANCE",
         image: "/images/services/maintenance.jpg",
-        route: "/services/garden-maintenance/",
+        route: "/services/garden-maintenance",
         message: "مرحبًا، أرغب في الاستفسار عن خدمات صيانة الحدائق بالرياض.",
       },
     ],
@@ -125,7 +124,7 @@ const megaMenuTabs: MegaMenuTab[] = [
 ];
 
 export const Header: React.FC = () => {
-  const pathname = usePathname();
+  const pathname = usePathname() || "";
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -156,38 +155,37 @@ export const Header: React.FC = () => {
   }, [mobileMenuOpen]);
 
   const isLinkActive = (href: string) => {
-    if (href === "/") {
-      return pathname === "/";
-    }
-    if (href.startsWith("/#")) {
-      return false;
+    if (!pathname) return false;
+    if (href === "/" || href === "") {
+      return pathname === "/" || pathname === "";
     }
     const cleanHref = href.replace(/\/$/, "");
     const cleanPath = pathname.replace(/\/$/, "");
-    return cleanPath.startsWith(cleanHref);
+    return cleanPath === cleanHref || cleanPath.startsWith(cleanHref + "/");
   };
 
-  const isServicesActive = pathname.startsWith("/services");
+  const isServicesActive = pathname ? pathname.startsWith("/services") : false;
   const currentTab = megaMenuTabs.find((t) => t.id === activeTab) || megaMenuTabs[0];
 
   const mainNavLinks = [
     { name: "الرئيسية", href: "/" },
-    { name: "أعمالنا", href: "/projects/" },
-    { name: "المقالات", href: "/articles/" },
-    { name: "من نحن", href: "/about/" },
-    { name: "آلية العمل", href: "/#process" },
-    { name: "لماذا نحن", href: "/#why-us" },
-    { name: "الأسئلة الشائعة", href: "/#faq" },
-    { name: "تواصل معنا", href: "/contact/" },
+    { name: "أعمالنا", href: "/projects" },
+    { name: "المقالات", href: "/articles" },
+    { name: "من نحن", href: "/about" },
+    { name: "تواصل معنا", href: "/contact" },
   ];
+
+  const isHomePage = pathname === "/" || pathname === "";
 
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? "bg-white/95 text-gray-900 shadow-md backdrop-blur-md border-b border-gray-100 py-3"
-            : "bg-emerald-950/75 text-white backdrop-blur-md border-b border-white/10 py-3.5"
+            ? "bg-white/95 text-gray-900 shadow-md backdrop-blur-md border-b border-gray-100 py-2.5 sm:py-3"
+            : isHomePage
+            ? "bg-emerald-950/80 text-white backdrop-blur-md border-b border-white/10 py-3.5"
+            : "bg-emerald-950 text-white shadow-md border-b border-emerald-900 py-3.5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -223,7 +221,7 @@ export const Header: React.FC = () => {
                 onMouseLeave={() => setShowMegaMenu(false)}
               >
                 <Link
-                  href="/services/"
+                  href="/services"
                   className={`flex items-center gap-1 hover:text-amber-400 transition-colors py-2 relative ${
                     isServicesActive
                       ? "text-amber-400 font-bold"
@@ -320,7 +318,7 @@ export const Header: React.FC = () => {
                         </div>
 
                         <Link
-                          href="/services/"
+                          href="/services"
                           onClick={() => setShowMegaMenu(false)}
                           className="inline-flex items-center gap-1 text-xs font-bold text-emerald-700 hover:text-emerald-900"
                         >
@@ -407,8 +405,8 @@ export const Header: React.FC = () => {
         </div>
       </header>
 
-      {/* Full-Screen Portal Mobile Drawer Overlay */}
-      {mounted && mobileMenuOpen && createPortal(
+      {/* Full-Screen Mobile Drawer Overlay */}
+      {mounted && mobileMenuOpen && (
         <div
           className="fixed inset-0 w-screen h-screen z-[99999] text-white flex flex-col justify-between overflow-y-auto p-6"
           style={{ backgroundColor: "#0b2014" }}
@@ -429,7 +427,7 @@ export const Header: React.FC = () => {
               </button>
 
               {/* Brand Logo Top Left */}
-              <Logo variant="light" showSubtitle={false} />
+              <Logo variant="light" size={76} />
             </div>
 
             {/* Mobile Navigation Items List */}
@@ -445,11 +443,11 @@ export const Header: React.FC = () => {
                 <span className="font-sans text-xs text-amber-300 uppercase font-bold">Home</span>
               </Link>
 
-              {/* 2. Services Accordion Link to /services/ */}
+              {/* 2. Services Accordion Link to /services */}
               <div className="rounded-2xl bg-emerald-900/40 border border-emerald-800/80 overflow-hidden">
                 <div className="flex items-center justify-between p-3.5 text-white font-extrabold text-base hover:bg-emerald-900/60 transition-colors">
                   <Link
-                    href="/services/"
+                    href="/services"
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center gap-2 hover:text-amber-300"
                   >
@@ -523,7 +521,7 @@ export const Header: React.FC = () => {
 
             {/* Phone Call / WhatsApp Button */}
             <a
-              href={getWhatsAppUrl("مرحبًا، أرغب في التواصل مع فريق زهرة الورود بالرياض.")}
+              href={getWhatsAppUrl("مرحبًا، أرغب في التواصل مع فريق مفتاح التنسيق.")}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full inline-flex items-center justify-center gap-2 p-3.5 rounded-2xl bg-white hover:bg-gray-100 text-emerald-950 font-bold text-sm shadow-lg transition-transform active:scale-[0.98]"
@@ -533,8 +531,7 @@ export const Header: React.FC = () => {
             </a>
           </div>
 
-        </div>,
-        document.body
+        </div>
       )}
     </>
   );

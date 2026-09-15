@@ -1,56 +1,68 @@
 import React from "react";
 import Image from "next/image";
+import { company } from "@/data/company";
 
 interface LogoProps {
   className?: string;
   variant?: "light" | "dark";
+  showText?: boolean;
   showSubtitle?: boolean;
   size?: number;
+  width?: number;
+  height?: number;
 }
 
 export const Logo: React.FC<LogoProps> = ({
   className = "",
   variant = "dark",
-  showSubtitle = true,
-  size = 48,
+  showText = false,
+  showSubtitle = false,
+  size = 76,
+  width,
+  height,
 }) => {
   const isLight = variant === "light";
+  const logoWidth = width || size;
+  const logoHeight = height || size;
 
   return (
     <div className={`flex items-center gap-3 select-none ${className}`}>
-      {/* Brand Icon Emblem with New Generated Logo */}
+      {/* Brand Logo Image Only - Enlarged Size */}
       <div
-        style={{ width: `${size}px`, height: `${size}px` }}
-        className="relative flex-shrink-0 flex items-center justify-center overflow-hidden"
+        style={{ width: `${logoWidth}px`, height: `${logoHeight}px` }}
+        className="relative flex-shrink-0 flex items-center justify-center transition-transform hover:scale-105"
       >
         <Image
           src="/images/logo-transparent.png"
-          alt="زهرة الورود - شعار احترافي"
-          width={size}
-          height={size}
-          className="w-full h-full object-contain"
+          alt={`${company.nameAr} - ${company.subtitleAr}`}
+          width={logoWidth * 2}
+          height={logoHeight * 2}
+          className="w-full h-full object-contain drop-shadow-md"
+          priority
         />
       </div>
 
-      {/* Brand Text */}
-      <div className="flex flex-col">
-        <span
-          className={`font-bold text-xl md:text-2xl leading-tight tracking-tight ${
-            isLight ? "text-white" : "text-emerald-950"
-          }`}
-        >
-          زهرة الورود
-        </span>
-        {showSubtitle && (
+      {/* Brand Text (rendered only if explicitly requested) */}
+      {showText && (
+        <div className="flex flex-col">
           <span
-            className={`text-xs md:text-xs font-medium tracking-wide ${
-              isLight ? "text-emerald-200/90" : "text-emerald-800"
+            className={`font-bold text-xl md:text-2xl leading-tight tracking-tight ${
+              isLight ? "text-white" : "text-emerald-950"
             }`}
           >
-            لتنسيق الحدائق بالرياض
+            {company.nameAr}
           </span>
-        )}
-      </div>
+          {showSubtitle && (
+            <span
+              className={`text-xs md:text-xs font-medium tracking-wide ${
+                isLight ? "text-emerald-200/90" : "text-emerald-800"
+              }`}
+            >
+              {company.subtitleAr}
+            </span>
+          )}
+        </div>
+      )}
     </div>
   );
 };

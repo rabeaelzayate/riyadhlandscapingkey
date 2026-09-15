@@ -34,6 +34,6 @@ export const processData: ProcessStep[] = [
     stepNumber: "05",
     title: "التسليم",
     description: "تستلم حديقتك جاهزة للاستخدام والاستمتاع مع توجيهات العناية والإرشادات.",
-    iconName: "Sparkle",
+    iconName: "CheckCircle2",
   },
 ];

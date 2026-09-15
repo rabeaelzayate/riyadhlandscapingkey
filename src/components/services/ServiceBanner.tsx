@@ -53,7 +53,7 @@ export const ServiceBanner: React.FC<ServiceBannerProps> = ({
               <ol className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-emerald-200/90">
                 {breadcrumbs.map((crumb, idx) => (
                   <li key={idx} className="flex items-center gap-1.5">
-                    {idx > 0 && <ChevronLeft className="w-3.5 h-3.5 text-amber-400 rotate-180" />}
+                    {idx > 0 && <ChevronLeft className="w-3.5 h-3.5 text-amber-400" />}
                     {crumb.href ? (
                       <Link href={crumb.href} className="hover:text-amber-300 transition-colors">
                         {crumb.label}

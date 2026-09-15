@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { MessageCircle, Calculator, Sparkles, Send } from "lucide-react";
+import { MessageCircle, Calculator, Send } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 export const LeadQuoteBanner: React.FC = () => {
@@ -11,10 +11,10 @@ export const LeadQuoteBanner: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const msg = `مرحبًا زهرة الورود، أرغب في الحصول على عرض سعر تقديري:
+    const msg = `مرحبًا مفتاح التنسيق، أرغب في الحصول على عرض سعر تقديري:
 - الخدمة: ${service}
 - المساحة التقريبية: ${areaSize}
-- الحي في الرياض: ${district}`;
+- الحي / المنطقة: ${district}`;
     window.open(getWhatsAppUrl(msg), "_blank");
   };
 
@@ -31,7 +31,7 @@ export const LeadQuoteBanner: React.FC = () => {
           {/* Text Title Side */}
           <div className="lg:col-span-5 text-right">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold mb-3 border border-amber-400/30">
-              <Sparkles className="w-3.5 h-3.5" />
+              <Calculator className="w-3.5 h-3.5" />
               <span>حساب تكلفة سريع</span>
             </span>
 

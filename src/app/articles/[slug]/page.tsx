@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { Calendar, Clock, BookOpen, CheckCircle2, ArrowRight } from "lucide-react";
+import { Calendar, Clock, BookOpen, CheckCircle2, ArrowRight, ArrowLeft, ChevronLeft, ChevronRight, Send, LayoutGrid } from "lucide-react";
 import { articlesData } from "@/data/articles";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -12,6 +12,7 @@ import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { WhatsAppFloating } from "@/components/ui/WhatsAppFloating";
 import { PhoneFloating } from "@/components/ui/PhoneFloating";
 import { RelatedArticlesSlider } from "@/components/articles/RelatedArticlesSlider";
+import { company } from "@/data/company";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
@@ -36,7 +37,7 @@ export async function generateMetadata({
     };
   }
 
-  const siteUrl = "https://zahret-al-wurood.com";
+  const siteUrl = "https://riyadhlandscapingkey-sa.com";
   const imageUrl = article.image.startsWith("http")
     ? article.image
     : `${siteUrl}${article.image}`;
@@ -51,10 +52,10 @@ export async function generateMetadata({
     },
     openGraph: {
       type: "article",
-      title: `${article.title} | زهرة الورود لتنسيق الحدائق بالرياض`,
+      title: `${article.title} | ${company.nameAr} ${company.subtitleAr}`,
       description: article.excerpt,
       url: articleUrl,
-      siteName: "زهرة الورود لتنسيق الحدائق بالرياض",
+      siteName: `${company.nameAr} ${company.subtitleAr}`,
       locale: "ar_SA",
       images: [
         {
@@ -87,7 +88,11 @@ export default async function ArticleDetailPage({
     notFound();
   }
 
-  const siteUrl = "https://zahret-al-wurood.com";
+  const currentIndex = articlesData.findIndex((a) => a.slug === slug);
+  const prevArticle = currentIndex > 0 ? articlesData[currentIndex - 1] : articlesData[articlesData.length - 1];
+  const nextArticle = currentIndex >= 0 && currentIndex < articlesData.length - 1 ? articlesData[currentIndex + 1] : articlesData[0];
+
+  const siteUrl = "https://riyadhlandscapingkey-sa.com";
   const imageUrl = article.image.startsWith("http")
     ? article.image
     : `${siteUrl}${article.image}`;
@@ -102,12 +107,12 @@ export default async function ArticleDetailPage({
     datePublished: "2026-08-16T12:00:00+03:00",
     author: {
       "@type": "Organization",
-      name: "زهرة الورود لتنسيق الحدائق بالرياض",
+      name: `${company.nameAr} ${company.subtitleAr}`,
       url: siteUrl,
     },
     publisher: {
       "@type": "Organization",
-      name: "زهرة الورود لتنسيق الحدائق بالرياض",
+      name: `${company.nameAr} ${company.subtitleAr}`,
       logo: {
         "@type": "ImageObject",
         url: `${siteUrl}/images/logo-transparent.png`,
@@ -233,9 +238,9 @@ export default async function ArticleDetailPage({
               هل ترغب في الحصول على استشارة فنية لحديقتك بالرياض؟
             </h3>
             <p className="text-xs sm:text-sm text-emerald-200">
-              تواصل مع مهندسي زهرة الورود لمعاينة موقعك مجانًا وتقديم أفضل الحلول المناسبة.
+              تواصل مع مهندسي {company.nameAr} لمعاينة موقعك مجانًا وتقديم أفضل الحلول المناسبة.
             </p>
-            <div className="pt-2 flex justify-center">
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
               <WhatsAppButton
                 variant="gold"
                 size="md"
@@ -243,6 +248,14 @@ export default async function ArticleDetailPage({
               >
                 تواصل معنا الآن عبر واتساب
               </WhatsAppButton>
+
+              <Link
+                href="/contact/"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-emerald-950 font-bold text-xs sm:text-sm hover:bg-emerald-50 transition-colors shadow-md"
+              >
+                <Send className="w-4 h-4 text-emerald-700" />
+                <span>حجز موعد معاينة</span>
+              </Link>
             </div>
           </div>
 
@@ -251,6 +264,50 @@ export default async function ArticleDetailPage({
             currentArticleId={article.id}
             category={article.category}
           />
+
+          {/* ========================================================
+              روابط التنقل بين المقالات (Previous & Next Article Navigation)
+             ======================================================== */}
+          <nav aria-label="التنقل بين المقالات" className="pt-8 border-t border-gray-200/80">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
+              {/* Previous Article */}
+              <Link
+                href={`/articles/${prevArticle.slug}/`}
+                className="flex items-center gap-3 p-4 rounded-2xl bg-white border border-gray-200 hover:border-emerald-500/50 hover:shadow-md transition-all text-right group"
+              >
+                <ChevronRight className="w-5 h-5 text-emerald-700 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                <div>
+                  <span className="text-[10px] text-gray-500 font-bold block">المقال السابق</span>
+                  <span className="text-xs sm:text-sm font-extrabold text-emerald-950 group-hover:text-emerald-700 transition-colors line-clamp-1">
+                    {prevArticle.title}
+                  </span>
+                </div>
+              </Link>
+
+              {/* All Articles Center Link */}
+              <Link
+                href="/articles/"
+                className="flex items-center justify-center gap-2 p-4 rounded-2xl bg-emerald-900 text-white hover:bg-emerald-800 transition-all font-bold text-xs sm:text-sm shadow-sm"
+              >
+                <LayoutGrid className="w-4 h-4 text-amber-400" />
+                <span>كافة المقالات والأدلة</span>
+              </Link>
+
+              {/* Next Article */}
+              <Link
+                href={`/articles/${nextArticle.slug}/`}
+                className="flex items-center justify-between p-4 rounded-2xl bg-white border border-gray-200 hover:border-emerald-500/50 hover:shadow-md transition-all text-right group"
+              >
+                <div>
+                  <span className="text-[10px] text-gray-500 font-bold block">المقال التالي</span>
+                  <span className="text-xs sm:text-sm font-extrabold text-emerald-950 group-hover:text-emerald-700 transition-colors line-clamp-1">
+                    {nextArticle.title}
+                  </span>
+                </div>
+                <ChevronLeft className="w-5 h-5 text-emerald-700 flex-shrink-0 group-hover:scale-110 transition-transform" />
+              </Link>
+            </div>
+          </nav>
 
         </article>
 

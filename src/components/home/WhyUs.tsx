@@ -95,7 +95,7 @@ export const WhyUs: React.FC = () => {
 
             {/* H2 Title */}
             <h2 className="text-3xl sm:text-4xl font-extrabold text-emerald-950 tracking-tight mb-1">
-              لماذا تختار شركة زهرة الورود؟
+              لماذا تختار مؤسسة {company.nameAr}؟
             </h2>
 
             {/* English Subtitle */}
@@ -131,7 +131,7 @@ export const WhyUs: React.FC = () => {
               <div className="relative aspect-[4/5] bg-emerald-950">
                 <Image
                   src="/images/why-us-fountain.jpg"
-                  alt="تنفيذ وتصميم حدائق وشلالات الفلل بالرياض - زهرة الورود"
+                  alt={`تنفيذ وتصميم حدائق وشلالات الفلل - ${company.nameAr}`}
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"

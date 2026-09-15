@@ -12,7 +12,7 @@ import {
   HelpCircle,
   ChevronDown,
   Trees,
-  Sparkles,
+  Layers,
   Droplets,
   Palmtree,
   Waves,
@@ -45,7 +45,7 @@ export default function ContactPage() {
 
   const handleSubmitForm = (e: React.FormEvent) => {
     e.preventDefault();
-    const formattedMessage = `مرحبًا زهرة الورود، أود طلب معاينة واستشارة لتنسيق الحديقة:
+    const formattedMessage = `مرحبًا ${company.nameAr}، أود طلب معاينة واستشارة لتنسيق الحديقة:
 • الاسم: ${name || "غير محدد"}
 • الجوال: ${phone || "غير محدد"}
 • الحي بالرياض: ${district || "غير محدد"}
@@ -82,7 +82,7 @@ export default function ContactPage() {
         
         {/* 1. Hero Header Banner */}
         <ServiceBanner
-          title="تواصل مع زهرة الورود لتنسيق الحدائق بالرياض"
+          title={`تواصل مع ${company.nameAr} ${company.subtitleAr}`}
           subtitle="جاهز تبدأ في تنسيق حديقتك؟ فريقنا يسعد باستقبال استفساراتك وتحديد موعد المعاينة الميدانية"
           image="/images/services/landscaping.jpg"
           sideImage="/images/contact-person-phone-transparent.png"
@@ -98,13 +98,13 @@ export default function ContactPage() {
           <div className="bg-emerald-950 text-white rounded-3xl p-6 sm:p-10 border border-emerald-800 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-2 text-right">
               <span className="inline-block px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold border border-amber-400/30">
-                خدمة عملاء زهرة الورود بالرياض
+                خدمة عملاء {company.nameAr}
               </span>
               <h1 className="text-2xl sm:text-3xl font-extrabold text-white">
                 جاهز تبدأ في تنسيق حديقتك؟
               </h1>
               <p className="text-xs sm:text-sm text-emerald-100/90 max-w-2xl leading-relaxed">
-                سواء كنت تبحث عن تنسيق حدائق بالرياض، تصميم حديقة منزلية، تركيب عشب طبيعي أو صناعي، تنفيذ شبكة ري، زراعة أشجار ونخيل، أو تركيب نافورة وشلال، فريق زهرة الورود جاهز للاستماع إلى احتياجك ومساعدتك في اختيار الحل المناسب لمساحتك.
+                سواء كنت تبحث عن تنسيق حدائق بالسعودية، تصميم حديقة منزلية، تركيب عشب طبيعي أو صناعي، تنفيذ شبكة ري، زراعة أشجار ونخيل، أو تركيب نافورة وشلال، فريق {company.nameAr} جاهز للاستماع إلى احتياجك ومساعدتك في اختيار الحل المناسب لمساحتك.
               </p>
             </div>
 
@@ -165,7 +165,7 @@ export default function ContactPage() {
 
             <div className="bg-white p-7 rounded-3xl border border-gray-200/80 shadow-xs space-y-3">
               <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
-                <Sparkles className="w-5 h-5" />
+                <Layers className="w-5 h-5" />
               </div>
               <h3 className="text-base font-bold text-emerald-950">تريد تركيب عشب؟</h3>
               <p className="text-xs text-gray-600 leading-relaxed">
@@ -515,7 +515,7 @@ export default function ContactPage() {
                 href="/services/artificial-turf/"
                 className="bg-white p-5 rounded-2xl border border-gray-200 hover:border-emerald-500 hover:shadow-md transition-all space-y-2 block group"
               >
-                <Sparkles className="w-5 h-5 text-emerald-700 group-hover:scale-110 transition-transform" />
+                <Layers className="w-5 h-5 text-emerald-700 group-hover:scale-110 transition-transform" />
                 <h3 className="text-sm font-bold text-emerald-950">العشب الصناعي</h3>
                 <p className="text-[11px] text-gray-600 line-clamp-1">حلول العشب المستمر للمساحات.</p>
               </Link>

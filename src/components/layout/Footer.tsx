@@ -1,5 +1,6 @@
 import React from "react";
-import { Phone, Mail, MapPin, MessageCircle, Clock, Navigation } from "lucide-react";
+import Link from "next/link";
+import { Phone, Mail, MapPin, MessageCircle, Clock, Navigation, BookOpen } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 import { company } from "@/data/company";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
@@ -7,24 +8,23 @@ import { InstallButton } from "@/components/pwa/InstallButton";
 
 export const Footer: React.FC = () => {
   const quickLinks = [
-    { name: "الرئيسية", href: "#hero" },
-    { name: "خدماتنا", href: "#services" },
-    { name: "أعمالنا", href: "#projects" },
-    { name: "آلية العمل", href: "#process" },
-    { name: "لماذا نحن", href: "#why-us" },
-    { name: "من نحن", href: "#about" },
-    { name: "الأسئلة الشائعة", href: "#faq" },
-    { name: "تواصل معنا", href: "#contact" },
+    { name: "الرئيسية", href: "/" },
+    { name: "خدماتنا المتكاملة", href: "/services/" },
+    { name: "معرض أعمالنا", href: "/projects/" },
+    { name: "المقالات والنصائح", href: "/articles/" },
+    { name: "من نحن", href: "/about/" },
+    { name: "تواصل معنا", href: "/contact/" },
   ];
 
   const serviceLinks = [
-    { name: "تنسيق الحدائق بالرياض", href: "#services" },
-    { name: "العشب الصناعي عالي الجودة", href: "#services" },
-    { name: "توريد الثيل الطبيعي", href: "#services" },
-    { name: "شبكات الري الأوتوماتيكية", href: "#services" },
-    { name: "النوافير والشلالات الجدارية", href: "#services" },
-    { name: "زراعة الأشجار والنخيل", href: "#services" },
-    { name: "صيانة وتقليم الحدائق", href: "#services" },
+    { name: "تنسيق الحدائق بالرياض", href: "/services/landscaping/" },
+    { name: "تصميم حدائق ثلاثي الأبعاد", href: "/services/garden-design/" },
+    { name: "تركيب العشب الصناعي", href: "/services/artificial-turf/" },
+    { name: "توريد الثيل الطبيعي", href: "/services/natural-grass/" },
+    { name: "الشلالات والنوافير الجدارية", href: "/services/waterfalls/" },
+    { name: "زراعة الأشجار والنخيل", href: "/services/trees-planting/" },
+    { name: "شبكات الري الأوتوماتيكية", href: "/services/irrigation-systems/" },
+    { name: "صيانة وتقليم الحدائق", href: "/services/garden-maintenance/" },
   ];
 
   return (
@@ -39,9 +39,11 @@ export const Footer: React.FC = () => {
           
           {/* Brand Info Column */}
           <div className="lg:col-span-4 flex flex-col">
-            <Logo variant="light" className="mb-4" />
+            <Link href="/" className="inline-block mb-4">
+              <Logo variant="light" size={88} />
+            </Link>
             <p className="text-sm text-emerald-200/80 leading-relaxed mb-6">
-              شركة <strong className="text-white">زهرة الورود لتنسيق وصيانة الحدائق بالرياض</strong>. نقدم حلولاً متكاملة لتصميم وتنسيق الأحواش، الفلل، الاستراحات، شبكات الري، والعشب الطبيعي والصناعي.
+              مؤسسة <strong className="text-white">{company.nameAr} {company.subtitleAr}</strong>. نقدم حلولاً متكاملة لتصميم وتنسيق الأحواش، الفلل، الاستراحات، شبكات الري، والعشب الطبيعي والصناعي.
             </p>
             
             <div className="space-y-2 text-xs text-amber-300">
@@ -63,17 +65,17 @@ export const Footer: React.FC = () => {
           {/* Navigation Links Column */}
           <div className="lg:col-span-2">
             <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-4 border-b border-emerald-800/80 pb-2">
-              روابط الموقع
+              صفحات الموقع
             </h3>
             <ul className="space-y-2.5">
               {quickLinks.map((link, idx) => (
                 <li key={idx}>
-                  <a
+                  <Link
                     href={link.href}
-                    className="text-xs sm:text-sm text-emerald-200/70 hover:text-amber-400 transition-colors"
+                    className="text-xs sm:text-sm text-emerald-200/70 hover:text-amber-400 transition-colors inline-block"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -87,12 +89,12 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2.5">
               {serviceLinks.map((link, idx) => (
                 <li key={idx}>
-                  <a
+                  <Link
                     href={link.href}
-                    className="text-xs sm:text-sm text-emerald-200/70 hover:text-amber-400 transition-colors"
+                    className="text-xs sm:text-sm text-emerald-200/70 hover:text-amber-400 transition-colors inline-block"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -131,7 +133,7 @@ export const Footer: React.FC = () => {
         {/* Legal & Copyright Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-emerald-300/60">
           <div>
-            © 2026 زهرة الورود لتنسيق الحدائق بالرياض. جميع الحقوق محفوظة.
+            © 2026 {company.nameAr} {company.subtitleAr}. جميع الحقوق محفوظة.
           </div>
 
           <div className="flex items-center gap-6">

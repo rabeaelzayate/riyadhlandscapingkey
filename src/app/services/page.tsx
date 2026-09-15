@@ -4,7 +4,6 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import {
   Trees,
-  Sparkles,
   CheckCircle2,
   Eye,
   ArrowRight,
@@ -20,19 +19,31 @@ import { WhatsAppFloating } from "@/components/ui/WhatsAppFloating";
 import { PhoneFloating } from "@/components/ui/PhoneFloating";
 
 import { ServiceBanner } from "@/components/services/ServiceBanner";
+import { company } from "@/data/company";
 
 export const metadata: Metadata = {
-  title: "خدمات تنسيق الحدائق بالرياض — دليل الخدمات الشامل",
+  title: "خدمات العشب الصناعي وتنسيق الحدائق بالسعودية | توريد وتركيب وجملة",
   description:
-    "استعرض جميع خدمات زهرة الورود لتنسيق الحدائق بالرياض: تصميم حدائق 3D، تركيب عشب صناعي وثيل طبيعي، شلالات ونوافير مودرن، شبكات ري، وزراعة الأشجار والنخيل.",
+    "استعرض خدمات مؤسسة مفتاح التنسيق وحدائق الفرسان: توريد وتركيب عشب صناعي وجداري، جملة ومفرق، ثيل طبيعي، شبكات ري أوتوماتيكية، شلالات ونوافير، حصى وبحص الزينة بالرياض والدمام.",
+  keywords: [
+    "خدمات العشب الصناعي",
+    "تركيب عشب صناعي بالرياض",
+    "عشب جداري صناعي",
+    "جملة العشب الصناعي",
+    "تنسيق حدائق عشب صناعي",
+    "اسعار العشب الصناعي بالرياض",
+    "حدائق الفرسان التجارية للعشب الصناعي",
+    "ثيل صناعي للحوش",
+    "حصى الزينة للحدائق"
+  ],
   alternates: {
-    canonical: "https://zahret-al-wurood.com/services/",
+    canonical: "https://riyadhlandscapingkey-sa.com/services/",
   },
   openGraph: {
-    title: "خدمات تنسيق الحدائق بالرياض — دليل الخدمات الشامل | زهرة الورود",
+    title: "خدمات العشب الصناعي وتنسيق الحدائق بالسعودية | مفتاح التنسيق",
     description:
-      "تصميم وتنفيذ حدائق الفلل والمنازل بالرياض، عشب صناعي وطبيعي وشبكات ري مع تصاميم 3D وضمان 5 سنوات.",
-    url: "https://zahret-al-wurood.com/services/",
+      "توريد وتركيب عشب صناعي وجداري، شبكات ري، شلالات ونوافير، حصى الزينة وتنسيق حدائق الفلل بالرياض والدمام.",
+    url: "https://riyadhlandscapingkey-sa.com/services/",
     images: ["/images/hero/hero-landscaping.jpg"],
   },
 };
@@ -46,8 +57,8 @@ export default function ServicesIndexPage() {
         
         {/* Hero Header Banner with Image & Green Overlay */}
         <ServiceBanner
-          title="خدمات شركة تصميم الرياض المتكاملة"
-          subtitle="من التصميم والمخططات حتى التنفيذ والصيانة - باقة شاملة لتنسيق الحدائق والشلالات والثيل في جميع أنحاء الرياض."
+          title={`خدمات مؤسسة ${company.nameAr} المتكاملة`}
+          subtitle="من التصميم والمخططات حتى التنفيذ والصيانة - باقة شاملة لتنسيق الحدائق والشلالات والثيل في كافة مدن ومناطق المملكة."
           image="/images/hero/hero-landscaping.jpg"
           breadcrumbs={[
             { label: "الرئيسية", href: "/" },
@@ -82,7 +93,7 @@ export default function ServicesIndexPage() {
                   <div className="relative h-60 bg-emerald-950 overflow-hidden">
                     <Image
                       src={service.image}
-                      alt={`${service.title} بالرياض - زهرة الورود`}
+                      alt={`${service.title} - ${company.nameAr}`}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -90,7 +101,7 @@ export default function ServicesIndexPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
                     <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-emerald-950 text-xs font-extrabold shadow-sm">
-                      زهرة الورود
+                      {company.nameAr}
                     </div>
                   </div>
 
@@ -165,12 +176,47 @@ export default function ServicesIndexPage() {
               </WhatsAppButton>
 
               <Link
-                href="/#contact"
+                href="/contact/"
                 className="px-6 py-3.5 rounded-xl border-2 border-emerald-400 text-white font-bold text-sm bg-emerald-900/60 hover:bg-emerald-800 transition-colors shadow-md"
               >
-                معلومات الاتصال والحي
+                حجز موعد ومعلومات التواصل
               </Link>
             </div>
+          </div>
+
+          {/* Cross Page Navigation Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+            <Link
+              href="/projects/"
+              className="p-6 rounded-3xl bg-white border border-gray-200/80 hover:border-emerald-500/50 hover:shadow-lg transition-all flex items-center justify-between text-right group"
+            >
+              <div>
+                <span className="text-[11px] text-amber-700 font-bold uppercase block mb-1">المعرض الحي</span>
+                <h4 className="text-base font-extrabold text-emerald-950 group-hover:text-emerald-700 transition-colors">
+                  معرض المشاريع المنفذة بالرياض
+                </h4>
+                <p className="text-xs text-gray-600 mt-1">تصفح صور الحدائق والشلالات والملاعب قبل وبعد التنفيذ.</p>
+              </div>
+              <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-700 group-hover:scale-110 transition-transform shrink-0 mr-3">
+                <Eye className="w-5 h-5" />
+              </div>
+            </Link>
+
+            <Link
+              href="/articles/"
+              className="p-6 rounded-3xl bg-white border border-gray-200/80 hover:border-emerald-500/50 hover:shadow-lg transition-all flex items-center justify-between text-right group"
+            >
+              <div>
+                <span className="text-[11px] text-amber-700 font-bold uppercase block mb-1">الدليل والنصائح</span>
+                <h4 className="text-base font-extrabold text-emerald-950 group-hover:text-emerald-700 transition-colors">
+                  المقالات والنصائح الزراعية والتصميمية
+                </h4>
+                <p className="text-xs text-gray-600 mt-1">دليل شامل لاختيار العشب وشبكات الري والنباتات الصحراوية.</p>
+              </div>
+              <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-700 group-hover:scale-110 transition-transform shrink-0 mr-3">
+                <Compass className="w-5 h-5" />
+              </div>
+            </Link>
           </div>
 
         </section>

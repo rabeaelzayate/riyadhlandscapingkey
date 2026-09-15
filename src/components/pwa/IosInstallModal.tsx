@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { createPortal } from "react-dom";
 import Image from "next/image";
-import { X, Share, PlusSquare, Smartphone, CheckCircle2, Sparkles } from "lucide-react";
+import { X, Share, PlusSquare, Smartphone, CheckCircle2 } from "lucide-react";
+import { company } from "@/data/company";
 
 interface IosInstallModalProps {
   isOpen: boolean;
@@ -27,9 +27,9 @@ export const IosInstallModal: React.FC<IosInstallModalProps> = ({
     };
   }, [isOpen]);
 
-  if (!isOpen || typeof document === "undefined") return null;
+  if (!isOpen) return null;
 
-  return createPortal(
+  return (
     <div
       className="fixed inset-0 z-[999999] flex items-center justify-center p-4 bg-black/75 backdrop-blur-md animate-fadeIn"
       onClick={onClose}
@@ -57,7 +57,7 @@ export const IosInstallModal: React.FC<IosInstallModalProps> = ({
           <div className="relative w-14 h-14 rounded-2xl overflow-hidden bg-emerald-900 border border-emerald-400/40 p-1 flex-shrink-0 shadow-lg">
             <Image
               src="/images/logo-transparent.png"
-              alt="تطبيق زهرة الورود"
+              alt={`تطبيق ${company.nameAr}`}
               width={56}
               height={56}
               className="w-full h-full object-contain"
@@ -65,11 +65,11 @@ export const IosInstallModal: React.FC<IosInstallModalProps> = ({
           </div>
           <div>
             <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-[11px] font-bold mb-1 border border-amber-500/30">
-              <Sparkles className="w-3 h-3" />
+              <CheckCircle2 className="w-3 h-3" />
               <span>تطبيق الجوال الرسمي</span>
             </div>
             <h3 className="text-lg font-black text-white">
-              تثبيت تطبيق زهرة الورود
+              تثبيت تطبيق {company.nameAr}
             </h3>
           </div>
         </div>
@@ -165,7 +165,6 @@ export const IosInstallModal: React.FC<IosInstallModalProps> = ({
           <span>فهمت، شكراً لك</span>
         </button>
       </div>
-    </div>,
-    document.body
+    </div>
   );
 };

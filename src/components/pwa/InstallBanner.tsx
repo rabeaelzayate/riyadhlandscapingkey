@@ -2,9 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { Download, X, Sparkles, Smartphone } from "lucide-react";
+import { Download, X, CheckCircle2, Smartphone } from "lucide-react";
 import { usePwaInstall } from "@/hooks/usePwaInstall";
 import { IosInstallModal } from "./IosInstallModal";
+import { company } from "@/data/company";
 
 export const InstallBanner: React.FC = () => {
   const {
@@ -67,7 +68,7 @@ export const InstallBanner: React.FC = () => {
             <div className="relative w-12 h-12 rounded-xl bg-emerald-900 border border-emerald-400/40 p-1 flex-shrink-0 shadow-md">
               <Image
                 src="/images/logo-transparent.png"
-                alt="شعار زهرة الورود"
+                alt={`شعار ${company.nameAr}`}
                 width={48}
                 height={48}
                 className="w-full h-full object-contain"
@@ -76,11 +77,11 @@ export const InstallBanner: React.FC = () => {
 
             <div className="min-w-0">
               <div className="flex items-center gap-1 text-[11px] font-bold text-amber-300">
-                <Sparkles className="w-3 h-3 flex-shrink-0" />
+                <CheckCircle2 className="w-3 h-3 flex-shrink-0" />
                 <span>تطبيق الجوال السريع</span>
               </div>
               <h4 className="font-extrabold text-sm text-white truncate">
-                تطبيق زهرة الورود
+                تطبيق {company.nameAr}
               </h4>
               <p className="text-[11px] text-emerald-200/80 truncate">
                 تثبيت على الهاتف لتصفح أسرع

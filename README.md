@@ -1,15 +1,15 @@
-# 🌿 شركة زهرة الورود لتنسيق الحدائق بالرياض | Zahret Al Wurood
+# 🌿 مؤسسة مفتاح التنسيق لتنسيق الحدائق بالسعودية | Muftah Al Tanseeq
 
 <div align="center">
 
-[![Next.js](https://img.shields.io/badge/Next.js-16.3.1-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-19.0.0-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![Next.js](https://img.shields.io/badge/Next.js-16.3.5-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19.3.0-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7.3-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0.0-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-12.4.7-black?style=for-the-badge&logo=framer&logoColor=blue)](https://www.framer.com/motion/)
 [![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-black?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
 
-**موقع إلكتروني رسمي وحديث لشركة زهرة الورود الرائدة في تصميم، تنسيق، وصيانة الحدائق وتركيب العشب الصناعي والشلالات في الرياض والمملكة العربية السعودية.**
+**موقع إلكتروني رسمي وحديث لمؤسسة مفتاح التنسيق الرائدة في تصميم، تنسيق، وصيانة الحدائق وتركيب العشب الصناعي والشلالات في الرياض والمملكة العربية السعودية.**
 
 [🌐 زيارة الموقع المباشر (Live Demo)](https://zahret-al-wurood.vercel.app) • [✨ المميزات](#-المميزات-الرئيسية) • [🛠️ التقنيات المستخدمة](#-التقنيات-المستخدمة) • [🚀 التشغيل المحلي](#-التشغيل-والتثبيت-المحلي) • [📂 هيكل المشروع](#-هيكل-المشروع)
 
@@ -19,7 +19,7 @@
 
 ## 📖 نبذة عن المشروع (Overview)
 
-موقع **زهرة الورود** مبني بأحدث معايير الويب وتقنيات **Next.js 16 (App Router)** مع دعم كامل للغة العربية وتجربة مستخدم سلسة واستجابة تامة لكافة الشاشات (Mobile-First Responsive Design). يتميز الموقع بتهيئة قوية لمحركات البحث (SEO & Schema.org JSON-LD)، بالإضافة إلى مقالات تفاعلية، صفحات خدمات متكاملة، ونماذج تواصل مباشرة عبر واتساب والمكالمات الهاتفية.
+موقع **مفتاح التنسيق** مبني بأحدث معايير الويب وتقنيات **Next.js 16 (App Router)** مع دعم كامل للغة العربية وتجربة مستخدم سلسة واستجابة تامة لكافة الشاشات (Mobile-First Responsive Design). يتميز الموقع بتهيئة قوية لمحركات البحث (SEO & Schema.org JSON-LD)، بالإضافة إلى مقالات تفاعلية، صفحات خدمات متكاملة، ونماذج تواصل مباشرة عبر واتساب والمكالمات الهاتفية.
 
 ---
 
@@ -42,8 +42,8 @@
 
 | التقنية | الإصدار | الوصف |
 | :--- | :--- | :--- |
-| **Next.js** | `^16.3.1` | إطار العمل الأساسي للـ SSR والـ App Router |
-| **React** | `^19.0.0` | مكتبة واجهات المستخدم |
+| **Next.js** | `^16.3.5` | إطار العمل الأساسي للـ SSR والـ App Router |
+| **React** | `^19.3.0` | مكتبة واجهات المستخدم |
 | **TypeScript** | `^5.7.3` | كتابة كود آمن ومنظم بنظام الأنواع |
 | **Tailwind CSS** | `^4.0.0` | بناء وتنسيق الواجهات بأنماط مرنة وحديثة |
 | **Framer Motion** | `^12.4.7` | الحركات والتأثيرات البصرية التفاعلية |
@@ -130,13 +130,13 @@ npm run start
 
 ## 📞 بيانات التواصل (Contact Info)
 
-- **الشركة:** زهرة الورود لتنسيق الحدائق
+- **الاسم:** مؤسسة مفتاح التنسيق لتنسيق الحدائق بالسعودية
 - **الموقع:** الرياض، المملكة العربية السعودية
-- **الهاتف / واتساب:** [+966560877272](https://wa.me/966560877272)
+- **الهاتف / واتساب:** [+966505661392](https://wa.me/966505661392)
 - **ساعات العمل:** السبت - الخميس: 8:00 صباحاً - 10:00 مساءً
 
 ---
 
 ## 📄 الترخيص (License)
 
-هذا المشروع خاص بشركة **زهرة الورود لتنسيق الحدائق** © 2026. جميع الحقوق محفوظة.
+هذا المشروع خاص بمؤسسة **مفتاح التنسيق لتنسيق الحدائق** © 2026. جميع الحقوق محفوظة.

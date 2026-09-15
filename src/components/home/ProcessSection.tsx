@@ -1,6 +1,7 @@
 import React from "react";
-import { MessageSquare, MapPin, FileText, Wrench, Sparkles } from "lucide-react";
+import { MessageSquare, MapPin, FileText, Wrench, CheckCircle2 } from "lucide-react";
 import { processData } from "@/data/process";
+import { company } from "@/data/company";
 
 export const ProcessSection: React.FC = () => {
   const getIcon = (iconName: string) => {
@@ -13,8 +14,8 @@ export const ProcessSection: React.FC = () => {
         return <FileText className="w-5 h-5 text-emerald-700" />;
       case "Wrench":
         return <Wrench className="w-5 h-5 text-emerald-700" />;
-      case "Sparkle":
-        return <Sparkles className="w-5 h-5 text-emerald-700" />;
+      case "CheckCircle2":
+        return <CheckCircle2 className="w-5 h-5 text-emerald-700" />;
       default:
         return <MessageSquare className="w-5 h-5 text-emerald-700" />;
     }
@@ -30,7 +31,7 @@ export const ProcessSection: React.FC = () => {
             خطوات التنفيذ
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-emerald-950 mt-4 mb-4">
-            كيف نعمل في زهرة الورود؟
+            كيف نعمل في مؤسسة {company.nameAr}؟
           </h2>
           <p className="text-base text-gray-600 leading-relaxed">
             مسار عمل منظم وواضح يضمن تحويل رؤيتك إلى واقع ملموس في 5 خطوات رئيسية.

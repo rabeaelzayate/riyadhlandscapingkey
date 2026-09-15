@@ -5,7 +5,7 @@ import { Phone } from "lucide-react";
 import { company } from "@/data/company";
 
 export const PhoneFloating: React.FC = () => {
-  const phoneNumber = company.phone || "+966560877272";
+  const phoneNumber = company.phone || "+966505661392";
   const telHref = `tel:${phoneNumber}`;
 
   return (

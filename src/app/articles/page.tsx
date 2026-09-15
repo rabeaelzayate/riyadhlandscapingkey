@@ -11,17 +11,25 @@ import { WhatsAppFloating } from "@/components/ui/WhatsAppFloating";
 import { PhoneFloating } from "@/components/ui/PhoneFloating";
 
 export const metadata: Metadata = {
-  title: "المقالات والنصائح المعمارية لتنسيق الحدائق بالرياض",
+  title: "المقالات والأدلة الفنية | دليل العشب الصناعي وتنسيق الحدائق بالسعودية",
   description:
-    "مجموعة من المقالات والأدلة الفنية الشاملة لتصميم وتنفيذ وصيانة حدائق المنازل والفلل بالرياض والعناية بالعشب والشلالات.",
+    "أدلة ومقالات شاملة حول أسعار ومواصفات العشب الصناعي والجداري، الثيل الطبيعي، شبكات الري الذكية، حصى الزينة، وتنسيق حدائق الفلل بالرياض والدمام.",
+  keywords: [
+    "مواصفات العشب الصناعي",
+    "اسعار العشب الصناعي بالرياض",
+    "انواع العشب الصناعي",
+    "طريقة فرش العشب الصناعي",
+    "الفرق بين العشب الطبيعي والصناعي",
+    "تزيين الجدران بالعشب الصناعي"
+  ],
   alternates: {
-    canonical: "https://zahret-al-wurood.com/articles/",
+    canonical: "https://riyadhlandscapingkey-sa.com/articles/",
   },
   openGraph: {
-    title: "المقالات والنصائح المعمارية لتنسيق الحدائق بالرياض | زهرة الورود",
+    title: "المقالات والأدلة الفنية | دليل العشب الصناعي وتنسيق الحدائق بالسعودية",
     description:
-      "مقالات فنية وإرشادات معمارية لتصميم حدائق الفلل والمنازل والعناية بالمسطحات الخضراء بالرياض.",
-    url: "https://zahret-al-wurood.com/articles/",
+      "مقالات فنية وإرشادات معمارية لتصميم حدائق الفلل والعناية بالعشب الصناعي والجداري بالسعودية.",
+    url: "https://riyadhlandscapingkey-sa.com/articles/",
     images: ["/images/hero/hero-landscaping.jpg"],
   },
 };
@@ -118,6 +126,53 @@ export default function ArticlesIndexPage() {
                 </div>
               </article>
             ))}
+          </div>
+
+          {/* Cross Navigation Banner & Links */}
+          <div className="pt-8 border-t border-gray-200/80 space-y-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <Link
+                href="/services/"
+                className="p-6 rounded-3xl bg-white border border-gray-200/80 hover:border-emerald-500/50 hover:shadow-lg transition-all flex items-center justify-between text-right group"
+              >
+                <div>
+                  <span className="text-[11px] text-emerald-700 font-bold uppercase block mb-1">خدماتنا الميدانية</span>
+                  <h4 className="text-sm sm:text-base font-extrabold text-emerald-950 group-hover:text-emerald-700 transition-colors">
+                    دليل كافة الخدمات (8)
+                  </h4>
+                  <p className="text-xs text-gray-600 mt-1">تنسيق حدائق، عشب طبيعي وصناعي، شلالات وشبكات ري.</p>
+                </div>
+                <ArrowLeft className="w-4 h-4 text-emerald-700 group-hover:-translate-x-1 transition-transform shrink-0 mr-3" />
+              </Link>
+
+              <Link
+                href="/projects/"
+                className="p-6 rounded-3xl bg-white border border-gray-200/80 hover:border-emerald-500/50 hover:shadow-lg transition-all flex items-center justify-between text-right group"
+              >
+                <div>
+                  <span className="text-[11px] text-emerald-700 font-bold uppercase block mb-1">النماذج والصور</span>
+                  <h4 className="text-sm sm:text-base font-extrabold text-emerald-950 group-hover:text-emerald-700 transition-colors">
+                    معرض الأعمال المنفذة
+                  </h4>
+                  <p className="text-xs text-gray-600 mt-1">شاهد صور الحدائق والشلالات التي نفذناها في الرياض.</p>
+                </div>
+                <ArrowLeft className="w-4 h-4 text-emerald-700 group-hover:-translate-x-1 transition-transform shrink-0 mr-3" />
+              </Link>
+
+              <Link
+                href="/contact/"
+                className="p-6 rounded-3xl bg-white border border-gray-200/80 hover:border-emerald-500/50 hover:shadow-lg transition-all flex items-center justify-between text-right group"
+              >
+                <div>
+                  <span className="text-[11px] text-amber-700 font-bold uppercase block mb-1">استشارة مجانية</span>
+                  <h4 className="text-sm sm:text-base font-extrabold text-emerald-950 group-hover:text-emerald-700 transition-colors">
+                    تواصل واحجز معاينة
+                  </h4>
+                  <p className="text-xs text-gray-600 mt-1">حدد موعد زيارة ميدانية لموقعك في أي حي بالرياض.</p>
+                </div>
+                <ArrowLeft className="w-4 h-4 text-emerald-700 group-hover:-translate-x-1 transition-transform shrink-0 mr-3" />
+              </Link>
+            </div>
           </div>
 
         </section>

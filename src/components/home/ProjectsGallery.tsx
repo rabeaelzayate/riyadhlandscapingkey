@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Eye, ArrowLeft } from "lucide-react";
+import Link from "next/link";
+import { Eye, ArrowLeft, LayoutGrid } from "lucide-react";
 import { LightboxModal } from "@/components/ui/LightboxModal";
 import { ProjectItem } from "@/data/projects";
 
@@ -121,7 +122,7 @@ export const ProjectsGallery: React.FC = () => {
 
               {/* Text Sliding Up On Hover */}
               <div className="absolute bottom-0 inset-x-0 z-20 p-4 text-right transform translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-out pointer-events-none">
-                <span className="text-[10px] text-amber-300 font-bold uppercase block mb-0.5">زهرة الورود</span>
+                <span className="text-[10px] text-amber-300 font-bold uppercase block mb-0.5">مفتاح التنسيق</span>
                 <h3 className="text-sm font-bold text-white mb-0.5">{recentProjects[1].title}</h3>
                 <span className="text-[11px] text-emerald-200 font-medium">{recentProjects[1].location}</span>
               </div>
@@ -143,7 +144,7 @@ export const ProjectsGallery: React.FC = () => {
               <div className="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out z-10 pointer-events-none" />
 
               <div className="absolute bottom-0 inset-x-0 z-20 p-4 text-right transform translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-out pointer-events-none">
-                <span className="text-[10px] text-amber-300 font-bold uppercase block mb-0.5">زهرة الورود</span>
+                <span className="text-[10px] text-amber-300 font-bold uppercase block mb-0.5">مفتاح التنسيق</span>
                 <h3 className="text-sm font-bold text-white mb-0.5">{recentProjects[2].title}</h3>
                 <span className="text-[11px] text-emerald-200 font-medium">{recentProjects[2].location}</span>
               </div>
@@ -167,7 +168,7 @@ export const ProjectsGallery: React.FC = () => {
 
             <div className="absolute bottom-0 inset-x-0 z-20 p-6 text-right transform translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-out pointer-events-none">
               <span className="inline-block px-3 py-1 rounded-full bg-amber-500 text-emerald-950 text-xs font-black mb-2">
-                زهرة الورود • مشروع مميز
+                مفتاح التنسيق • مشروع مميز
               </span>
               <h3 className="text-lg sm:text-xl font-bold text-white mb-1">{recentProjects[0].title}</h3>
               <p className="text-xs text-emerald-100/90">{recentProjects[0].description}</p>
@@ -195,7 +196,7 @@ export const ProjectsGallery: React.FC = () => {
                   <div className="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out z-10 pointer-events-none" />
 
                   <div className="absolute bottom-0 inset-x-0 z-20 p-4 text-right transform translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-out pointer-events-none">
-                    <span className="text-[10px] text-amber-300 font-bold uppercase block mb-0.5">زهرة الورود</span>
+                    <span className="text-[10px] text-amber-300 font-bold uppercase block mb-0.5">مفتاح التنسيق</span>
                     <h3 className="text-xs sm:text-sm font-bold text-white mb-0.5">{item.title}</h3>
                     <span className="text-[10px] text-emerald-200 font-medium">{item.location}</span>
                   </div>
@@ -206,14 +207,23 @@ export const ProjectsGallery: React.FC = () => {
 
         </div>
 
-        {/* Bottom Action Button */}
-        <div className="text-center">
+        {/* Bottom Action Buttons */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Link
+            href="/projects/"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-emerald-900 hover:bg-emerald-800 text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all"
+          >
+            <LayoutGrid className="w-4 h-4 text-amber-400" />
+            <span>استعراض معرض الأعمال الكامل وتصنيفات المشاريع</span>
+            <ArrowLeft className="w-4 h-4 text-amber-400" />
+          </Link>
+
           <button
             onClick={() => setSelectedIndex(0)}
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white hover:bg-emerald-50 text-emerald-800 border-2 border-emerald-600/40 text-xs sm:text-sm font-bold shadow-xs hover:shadow-md transition-all active:scale-98 cursor-pointer"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-emerald-50 text-emerald-800 border-2 border-emerald-600/40 text-xs sm:text-sm font-bold shadow-xs hover:shadow-md transition-all active:scale-98 cursor-pointer"
           >
+            <Eye className="w-4 h-4 text-emerald-600" />
             <span>تصفح الصور بالشاشة الكاملة</span>
-            <ArrowLeft className="w-4 h-4 text-emerald-600" />
           </button>
         </div>
 

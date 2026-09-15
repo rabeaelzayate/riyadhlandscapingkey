@@ -7,7 +7,6 @@ import {
   ArrowLeft,
   Phone,
   MessageCircle,
-  Sparkles,
   MapPin,
   ShieldCheck,
   Clock,
@@ -19,6 +18,9 @@ import {
   Waves,
   Calculator,
   BookOpen,
+  ChevronLeft,
+  ChevronRight,
+  LayoutGrid,
 } from "lucide-react";
 import { servicesData } from "@/data/services";
 import { serviceArticlesData } from "@/data/serviceArticles";
@@ -55,25 +57,71 @@ export async function generateMetadata({
     };
   }
 
-  const title = `${service.title} بالرياض — تصميم وتنفيذ مع الضمان`;
-  const description =
-    service.description ||
-    `خدمة ${service.title} بالرياض بأعلى معايير الجودة، تصاميم ثلاثية الأبعاد (3D) مجانية، مع استخدام أفضل المواد وضمان يصل إلى 5 سنوات.`;
+  const serviceMetaOverrides: Record<string, { title: string; description: string; keywords: string[] }> = {
+    "artificial-turf": {
+      title: "العشب الصناعي بالرياض والدمام | توريد وتركيب ثيل صناعي وجداري بالجملة",
+      description: "أفضل شركة عشب صناعي وثيل صناعي للحوش والجدران والملاعب بالرياض والدمام. توريد وتركيب عشب صناعي بالمتر وبالجملة، ديكورات عشب جداري بأرخص الأسعار مع ضمان 7 سنوات.",
+      keywords: ["عشب صناعي", "ثيل صناعي", "العشب الصناعي بالرياض", "عشب صناعي الدمام", "عشب جداري صناعي", "جملة العشب الصناعي", "اسعار العشب الصناعي بالرياض", "حدائق الفرسان التجارية للعشب الصناعي", "تركيب عشب صناعي"]
+    },
+    "landscaping": {
+      title: "تنسيق حدائق بالرياض والدمام | تصميم وتنسيق حدائق منزلية وفلل 3D",
+      description: "مؤسسة مفتاح التنسيق وحدائق الفرسان لتنسيق الحدائق المنزلية والفلل والاستراحات بالسعودية. تصميم حدائق 3D مجاني، عشب صناعي وطبيعي وشلالات وشبكات ري بأفضل الأسعار.",
+      keywords: ["تنسيق حدائق", "تنسيق حدائق بالرياض", "حدائق الفرسان", "تنسيق حدائق عشب صناعي", "تصميم حدائق", "تنسيق الحوش بالعشب الصناعي"]
+    },
+    "garden-design": {
+      title: "تصميم حدائق 3D بالرياض | مخططات وديكورات حدائق الفلل والمنازل",
+      description: "خدمة تصميم حدائق منزلية وخارجية ثلاثية الأبعاد 3D بالرياض. استغلال ذكي للمساحات وتوزيع المسطحات الخضراء والجلسات والممرات وحصى الزينة باحترافية.",
+      keywords: ["تصميم حدائق", "تصميم حدائق 3D", "ديكورات حدائق", "تصميم عشب صناعي", "تنسيق حدائق منزلية"]
+    },
+    "natural-grass": {
+      title: "توريد وزراعة العشب الطبيعي والثيل C2000 بالرياض | رولات طازجة",
+      description: "توريد وزراعة الثيل الطبيعي C2000 والأمريكي والياباني الطازج من المزارع مباشرة للحدائق والفلل بالرياض مع تجهيز التربة وشبكات الري وضمان النمو.",
+      keywords: ["عشب طبيعي", "ثيل طبيعي", "ثيل C2000", "زراعة ثيل طبيعي بالرياض", "اسعار الثيل الطبيعي"]
+    },
+    "irrigation-systems": {
+      title: "تركيب شبكات الري الأوتوماتيكية بالرياض | أنظمة ري ذكية ومرشدة",
+      description: "تصميم وتنفيذ شبكات ري أوتوماتيكية وعادية للحدائق بالرياض مع محابس ومؤقتات رقمية ومضخات وترشيد استهلاك المياه بـ 60%.",
+      keywords: ["شبكات ري", "شبكات ري بالرياض", "ري اتوماتيكي", "تايمر ري حدائق", "رشاشات ري"]
+    },
+    "waterfalls": {
+      title: "تصميم وتنفيذ الشلالات والنوافير الجدارية والمودرن بالرياض",
+      description: "تنفيذ شلالات جدارية ونوافير حجرية ومودرن للحدائق والمنازل بالرياض مع عوازل مائية إيبوكسي وإضاءات LED مخفية ومضخات ممتازة.",
+      keywords: ["شلالات جدارية", "نوافير مودرن", "شلالات حدائق بالرياض", "نوافير منزلية", "ديكورات مائية"]
+    },
+    "trees-planting": {
+      title: "زراعة الأشجار ونخيل واشنطنيا ونباتات الزينة بالرياض",
+      description: "توريد وغرس أشجار الظل والنخيل الواشنطني والبلدي والزهور وشجيرات الزينة الملائمة لمناخ الرياض مع خلطات التربة والمغذيات.",
+      keywords: ["زراعة اشجار بالرياض", "نخيل واشنطنيا", "اشجار حدائق", "نباتات زينة", "غرس نخيل"]
+    },
+    "garden-maintenance": {
+      title: "صيانة وتكريب وتقليم الحدائق بالرياض | عقود صيانة دورية",
+      description: "خدمات صيانة الحدائق الدورية بالرياض: قص العشب الطبيعي، تنظيف وتمشيط العشب الصناعي، تقليم وتكريب النخيل، مكافحة الآفات وتسميد التربة.",
+      keywords: ["صيانة حدائق", "تقليم اشجار بالرياض", "تكريب نخيل", "صيانة عشب صناعي", "قص ثيل"]
+    }
+  };
+
+  const override = serviceMetaOverrides[service.id];
+  const title = override ? override.title : `${service.title} بالرياض — تصميم وتنفيذ مع الضمان`;
+  const description = override
+    ? override.description
+    : service.description ||
+      `خدمة ${service.title} بالرياض بأعلى معايير الجودة، تصاميم ثلاثية الأبعاد (3D) مجانية، مع استخدام أفضل المواد وضمان يصل إلى 5 سنوات.`;
 
   return {
     title,
     description,
+    keywords: override?.keywords,
     alternates: {
-      canonical: `https://zahret-al-wurood.com/services/${service.id}/`,
+      canonical: `https://riyadhlandscapingkey-sa.com/services/${service.id}/`,
     },
     openGraph: {
-      title: `${title} | زهرة الورود`,
+      title: `${title} | ${company.nameAr}`,
       description,
-      url: `https://zahret-al-wurood.com/services/${service.id}/`,
+      url: `https://riyadhlandscapingkey-sa.com/services/${service.id}/`,
       images: [
         {
           url: service.image,
-          alt: `${service.title} بالرياض — زهرة الورود`,
+          alt: `${service.title} — ${company.nameAr}`,
         },
       ],
     },
@@ -95,7 +143,11 @@ export default async function ServiceDetailPage({
   const article = serviceArticlesData[id] || serviceArticlesData["landscaping"];
   const otherServices = servicesData.filter((s) => s.id !== id);
 
-  const siteUrl = "https://zahret-al-wurood.com";
+  const currentIndex = servicesData.findIndex((s) => s.id === service.id);
+  const prevService = currentIndex > 0 ? servicesData[currentIndex - 1] : servicesData[servicesData.length - 1];
+  const nextService = currentIndex >= 0 && currentIndex < servicesData.length - 1 ? servicesData[currentIndex + 1] : servicesData[0];
+
+  const siteUrl = "https://riyadhlandscapingkey-sa.com";
   const serviceUrl = `${siteUrl}/services/${service.id}/`;
 
   const serviceJsonLd = {
@@ -107,7 +159,7 @@ export default async function ServiceDetailPage({
     "description": service.description,
     "provider": {
       "@type": "LocalBusiness",
-      "name": "زهرة الورود لتنسيق الحدائق بالرياض",
+      "name": `${company.nameAr} ${company.subtitleAr}`,
       "url": siteUrl,
       "telephone": company.phone,
       "image": `${siteUrl}/images/logo-transparent.png`
@@ -190,7 +242,7 @@ export default async function ServiceDetailPage({
             {/* Detailed Info */}
             <div className="lg:col-span-7 text-right space-y-6">
               <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-amber-100/80 border border-amber-300/60 text-amber-900 text-xs font-bold">
-                <span>• لماذا زهرة الورود</span>
+                <span>• لماذا {company.nameAr}</span>
               </div>
 
               <h2 className="text-2xl sm:text-3xl font-extrabold text-emerald-950 leading-tight">
@@ -198,7 +250,7 @@ export default async function ServiceDetailPage({
               </h2>
 
               <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-                تتطلب المساحات الخارجية في مدينة الرياض دراسة دقيقة للمناخ ودرجات الحرارة. نحن في <strong>زهرة الورود</strong> نعتمد على اختيار أنواع الثيل والنباتات والأشجار الصحراوية والمحلية ذات التحمل العالي، مع تركيب شبكات ري أوتوماتيكية موفرة للمياه تضمن استدامة حديقتك طوال العام.
+                تتطلب المساحات الخارجية دراسة دقيقة للمناخ ودرجات الحرارة. نحن في <strong>{company.nameAr}</strong> نعتمد على اختيار أنواع الثيل والنباتات والأشجار الصحراوية والمحلية ذات التحمل العالي، مع تركيب شبكات ري أوتوماتيكية موفرة للمياه تضمن استدامة حديقتك طوال العام.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
@@ -364,7 +416,7 @@ export default async function ServiceDetailPage({
               <div className="bg-gradient-to-br from-emerald-950 via-emerald-900 to-emerald-950 text-white p-8 sm:p-10 rounded-3xl border border-emerald-800 shadow-xl space-y-6 text-right">
                 <div className="border-b border-emerald-800/80 pb-4">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold mb-2 border border-amber-400/30">
-                    <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                    <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
                     <span>لماذا نحن الخيار الأفضل بالرياض؟</span>
                   </span>
                   <h3 className="text-2xl font-extrabold text-white mb-1">
@@ -392,7 +444,7 @@ export default async function ServiceDetailPage({
 
                 <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-emerald-800/80">
                   <p className="text-xs font-bold text-amber-200 flex items-center gap-1.5">
-                    <Sparkles className="w-4 h-4 text-amber-400 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
                     <span>{article.marketingSection.guaranteeText}</span>
                   </p>
                   
@@ -630,6 +682,17 @@ export default async function ServiceDetailPage({
                 </div>
               ))}
             </div>
+
+            <div className="pt-2 text-center">
+              <Link
+                href="/projects/"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white hover:bg-emerald-50 text-emerald-900 border border-emerald-300 text-xs sm:text-sm font-bold shadow-xs transition-colors"
+              >
+                <LayoutGrid className="w-4 h-4 text-emerald-700" />
+                <span>مشاهدة كافة أعمالنا وتصاميمنا المنفذة</span>
+                <ArrowLeft className="w-4 h-4 text-emerald-700" />
+              </Link>
+            </div>
           </section>
 
           {/* ========================================================
@@ -675,6 +738,50 @@ export default async function ServiceDetailPage({
               8. الخدمات ذات الصلة (Related Services Slider Carousel)
              ======================================================== */}
           <RelatedServicesSlider services={otherServices} />
+
+          {/* ========================================================
+              9. روابط التنقل بين الخدمات (Previous & Next Service Navigation)
+             ======================================================== */}
+          <nav aria-label="التنقل بين الخدمات" className="pt-6 border-t border-gray-200/80">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
+              {/* Previous Service */}
+              <Link
+                href={`/services/${prevService.id}/`}
+                className="flex items-center gap-3 p-4 rounded-2xl bg-white border border-gray-200 hover:border-emerald-500/50 hover:shadow-md transition-all text-right group"
+              >
+                <ChevronRight className="w-5 h-5 text-emerald-700 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                <div>
+                  <span className="text-[10px] text-gray-500 font-bold block">الخدمة السابقة</span>
+                  <span className="text-xs sm:text-sm font-extrabold text-emerald-950 group-hover:text-emerald-700 transition-colors">
+                    {prevService.title}
+                  </span>
+                </div>
+              </Link>
+
+              {/* All Services Center Link */}
+              <Link
+                href="/services/"
+                className="flex items-center justify-center gap-2 p-4 rounded-2xl bg-emerald-900 text-white hover:bg-emerald-800 transition-all font-bold text-xs sm:text-sm shadow-sm"
+              >
+                <LayoutGrid className="w-4 h-4 text-amber-400" />
+                <span>دليل كافة الخدمات (8)</span>
+              </Link>
+
+              {/* Next Service */}
+              <Link
+                href={`/services/${nextService.id}/`}
+                className="flex items-center justify-between p-4 rounded-2xl bg-white border border-gray-200 hover:border-emerald-500/50 hover:shadow-md transition-all text-right group"
+              >
+                <div>
+                  <span className="text-[10px] text-gray-500 font-bold block">الخدمة التالية</span>
+                  <span className="text-xs sm:text-sm font-extrabold text-emerald-950 group-hover:text-emerald-700 transition-colors">
+                    {nextService.title}
+                  </span>
+                </div>
+                <ChevronLeft className="w-5 h-5 text-emerald-700 flex-shrink-0 group-hover:scale-110 transition-transform" />
+              </Link>
+            </div>
+          </nav>
 
         </div>
 

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight, Eye } from "lucide-react";
 import { ServiceItem } from "@/data/services";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import { company } from "@/data/company";
 
 interface RelatedServicesSliderProps {
   services: ServiceItem[];
@@ -85,7 +86,7 @@ export const RelatedServicesSlider: React.FC<RelatedServicesSliderProps> = ({
               <div className="relative h-48 bg-emerald-950 overflow-hidden">
                 <Image
                   src={item.image}
-                  alt={`${item.title} بالرياض - زهرة الورود`}
+                  alt={`${item.title} - ${company.nameAr}`}
                   fill
                   sizes="384px"
                   className="object-cover transition-transform duration-500 hover:scale-105"
@@ -93,7 +94,7 @@ export const RelatedServicesSlider: React.FC<RelatedServicesSliderProps> = ({
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
                 <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-emerald-950 text-[11px] font-extrabold shadow-sm">
-                  زهرة الورود
+                  {company.nameAr}
                 </div>
               </div>
 

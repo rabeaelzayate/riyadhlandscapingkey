@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://zahret-al-wurood.com/sitemap.xml",
+    sitemap: "https://riyadhlandscapingkey-sa.com/sitemap.xml",
   };
 }

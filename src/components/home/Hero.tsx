@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, ChevronLeft, ChevronRight, Sparkles, MapPin } from "lucide-react";
+import { MessageCircle, ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 interface SlideData {
@@ -19,39 +20,39 @@ interface SlideData {
 const slides: SlideData[] = [
   {
     id: 1,
-    badge: "أفضل شركة تنسيق حدائق بالرياض",
-    title: "أفضل خدمات تنسيق الحدائق في الرياض",
-    subtitle: "BEST LANDSCAPING SERVICES IN RIYADH",
-    description: "نحوّل مساحتك الخارجية إلى واحة خضراء تنبض بالحياة والفخامة، مع تصاميم مخصصة للفلل والمنازل بالرياض.",
+    badge: "مؤسسة مفتاح التنسيق وحدائق الفرسان",
+    title: "أفضل خدمات تصميم وتنسيق الحدائق والعشب الصناعي بالسعودية",
+    subtitle: "MUFTAH AL TANSEEQ LANDSCAPING & ARTIFICIAL TURF",
+    description: "نحوّل مساحتك الخارجية إلى واحة خضراء تنبض بالحياة والفخامة، مع تصاميم مودرن للفلل والمنازل والاستراحات بالرياض والدمام.",
     image: "/images/hero/hero-landscaping.jpg",
-    whatsappMessage: "مرحبًا، أرغب في طلب معاينة مجانية لتنسيق حدائق بالرياض.",
+    whatsappMessage: "مرحبًا، أرغب في طلب معاينة مجانية لتنسيق حديقة لدى مؤسسة مفتاح التنسيق.",
   },
   {
     id: 2,
-    badge: "توريد وتركيب بأعلى جودة",
-    title: "توريد وتركيب الثيل الطبيعي والصناعي",
-    subtitle: "NATURAL & ARTIFICIAL GRASS",
-    description: "عشب طبيعي وصناعي بكثافة عالية ومقاومة ممتازة لأجواء الرياض لضمان لون أخضر زاهٍ ومظهر طبيعي يدوم طويلاً.",
+    badge: "عشب صناعي وجداري بالجملة والمتر",
+    title: "توريد وتركيب العشب الصناعي والجداري وثيل الحوش",
+    subtitle: "WALL & LANDSCAPE ARTIFICIAL TURF",
+    description: "عشب صناعي وجداري بكثافة عالية وضمان معتمد، تزيين جدران الحوش، ثيل ملاعب وأحواش بأفضل الأسعار بالرياض والدمام.",
     image: "/images/services/artificial-turf.jpg",
-    whatsappMessage: "مرحبًا، أرغب في الاستفسار عن خدمة تركيب الثيل الطبيعي والصناعي.",
+    whatsappMessage: "مرحبًا، أرغب في الاستفسار عن توريد وتركيب العشب الصناعي والجداري لدى مفتاح التنسيق.",
   },
   {
     id: 3,
-    badge: "عناصر مائية ومودرن",
-    title: "تصميم وتنفيذ الشلالات والنوافير الجدارية",
-    subtitle: "MODERN WATERFALLS & FOUNTAINS",
-    description: "شلالات وتصاميم مائية أنيقة بلمسات حجرية وإضاءات دافئة تضيف لمسة راقية وصوت ماء مهدئ للمنازل والحدائق.",
+    badge: "شلالات ونوافير وديكورات حجرية",
+    title: "تصميم الشلالات والنوافير وحصى الزينة وبحص الحدائق",
+    subtitle: "WATERFALLS & DECORATIVE PEBBLES",
+    description: "شلالات جدارية مودرن، ممرات بحص وحصى زينة أبيض وملون، وكور مضيئة لإطلالة مسائية ساحرة لحديقة منزلك.",
     image: "/images/services/waterfalls.jpg",
-    whatsappMessage: "مرحبًا، أرغب في الاستفسار عن تنفيذ الشلالات والنوافير المنزلية بالرياض.",
+    whatsappMessage: "مرحبًا، أرغب في الاستفسار عن الشلالات وحصى الزينة لدى مفتاح التنسيق.",
   },
   {
     id: 4,
-    badge: "حلول موفرة للمياه",
-    title: "تركيب شبكات الري الأوتوماتيكية الحديثة",
-    subtitle: "SMART IRRIGATION SYSTEMS",
-    description: "شبكات ري بالتنقيط والرشاشات مزودة بمؤقتات ذكية تضمن التغذية المتوازنة للنباتات وترشيد استهلاك المياه.",
+    badge: "شبكات ري ذكية وثيل طبيعي",
+    title: "تركيب شبكات الري الأوتوماتيكية وزراعة الثيل الطبيعي",
+    subtitle: "SMART IRRIGATION & NATURAL GRASS",
+    description: "أنظمة ري متطورة بمؤقتات رقمية لترشيد المياه بـ 60%، زراعة ثيل C2000 وأشجار ونخيل بأعلى معايير الإتقان.",
     image: "/images/services/irrigation.jpg",
-    whatsappMessage: "مرحبًا، أرغب في الاستفسار عن تركيب شبكات الري بالرياض.",
+    whatsappMessage: "مرحبًا، أرغب في الاستفسار عن شبكات الري الأوتوماتيكية والثيل الطبيعي لدى مفتاح التنسيق.",
   },
 ];
 
@@ -142,12 +143,12 @@ export const Hero: React.FC = () => {
               {/* CTAs */}
               <div className="flex flex-wrap gap-4 items-center">
                 {/* Primary Button */}
-                <a
-                  href="#services"
+                <Link
+                  href="/services/"
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-7 py-3.5 text-base shadow-xl hover:-translate-y-0.5 transition-all duration-300 focus:ring-2 focus:ring-emerald-400"
                 >
                   تصفح خدماتنا
-                </a>
+                </Link>
 
                 {/* Secondary WhatsApp Button */}
                 <a

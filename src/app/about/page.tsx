@@ -6,7 +6,6 @@ import {
   Compass,
   Eye,
   Target,
-  Sparkles,
   CheckCircle2,
   MapPin,
   Trees,
@@ -33,25 +32,34 @@ import { company } from "@/data/company";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
-  title: "من نحن | زهرة الورود لتنسيق الحدائق بالرياض",
+  title: "من نحن | مفتاح التنسيق وحدائق الفرسان للعشب الصناعي وتنسيق الحدائق بالسعودية",
   description:
-    "تعرف على زهرة الورود لتنسيق الحدائق بالرياض، ورؤيتنا في تصميم وتنسيق المساحات الخارجية وتقديم حلول متكاملة للحدائق والعشب والري والنباتات.",
+    "تعرف على مؤسسة مفتاح التنسيق وحدائق الفرسان: رواد تنسيق وتصميم الحدائق، توريد وتركيب العشب الصناعي والجداري، الثيل الطبيعي، شبكات الري وحصى الزينة بالرياض والدمام وكافة مناطق المملكة.",
+  keywords: [
+    "مفتاح التنسيق",
+    "حدائق الفرسان",
+    "مؤسسة حدائق الفرسان",
+    "حدائق الفرسان التجارية للعشب الصناعي",
+    "شركة تنسيق حدائق بالسعودية",
+    "شركة عشب صناعي بالرياض",
+    "توريد وتركيب عشب صناعي"
+  ],
   alternates: {
-    canonical: "https://zahret-al-wurood.com/about/",
+    canonical: "https://riyadhlandscapingkey-sa.com/about/",
   },
   openGraph: {
-    title: "من نحن | زهرة الورود لتنسيق الحدائق بالرياض",
+    title: "من نحن | مؤسسة مفتاح التنسيق وحدائق الفرسان للعشب الصناعي",
     description:
-      "تعرف على زهرة الورود لتنسيق الحدائق بالرياض، ورؤيتنا في تصميم وتنسيق المساحات الخارجية وتقديم حلول متكاملة للحدائق والعشب والري والنباتات.",
-    url: "https://zahret-al-wurood.com/about/",
-    siteName: "زهرة الورود لتنسيق الحدائق بالرياض",
+      "رواد تصميم وتنسيق الحدائق وتوريد وتركيب العشب الصناعي والجداري وشبكات الري بالسعودية.",
+    url: "https://riyadhlandscapingkey-sa.com/about/",
+    siteName: "مفتاح التنسيق للعشب الصناعي والحدائق",
     locale: "ar_SA",
     images: [
       {
-        url: "https://zahret-al-wurood.com/images/hero/hero-landscaping.jpg",
+        url: "https://riyadhlandscapingkey-sa.com/images/hero/hero-landscaping.jpg",
         width: 1200,
         height: 630,
-        alt: "زهرة الورود لتنسيق الحدائق بالرياض",
+        alt: "مفتاح التنسيق وحدائق الفرسان لتنسيق الحدائق بالسعودية",
       },
     ],
   },
@@ -96,13 +104,13 @@ export default function AboutPage() {
           <div className="bg-emerald-950 text-white rounded-3xl p-6 sm:p-10 border border-emerald-800 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-2 text-right">
               <span className="inline-block px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold border border-amber-400/30">
-                زهرة الورود بالرياض
+                {company.nameAr} {company.subtitleAr}
               </span>
               <h1 className="text-2xl sm:text-3xl font-extrabold text-white">
                 نحول المساحات الخارجية إلى حدائق تنبض بالجمال
               </h1>
               <p className="text-xs sm:text-sm text-emerald-100/90 max-w-2xl leading-relaxed">
-                في زهرة الورود لتنسيق الحدائق بالرياض نؤمن أن الحديقة ليست مجرد مساحة خضراء، بل جزء من جمال المكان وتجربة الحياة اليومية. لذلك نهتم بتصميم وتنفيذ المساحات الخارجية بطريقة تجمع بين الجمال، والراحة، والتنظيم، وسهولة العناية.
+                في مؤسسة {company.nameAr} لتنسيق الحدائق بالسعودية نؤمن أن الحديقة ليست مجرد مساحة خضراء، بل جزء من جمال المكان وتجربة الحياة اليومية. لذلك نهتم بتصميم وتنفيذ المساحات الخارجية بطريقة تجمع بين الجمال، والراحة، والتنظيم، وسهولة العناية.
               </p>
             </div>
 
@@ -111,7 +119,7 @@ export default function AboutPage() {
                 اطلب معاينة مجانية
               </WhatsAppButton>
               <a
-                href={getWhatsAppUrl("مرحبًا، أود التواصل لمعرفة المزيد عن خدمات زهرة الورود بالرياض.")}
+                href={getWhatsAppUrl(`مرحبًا، أود التواصل لمعرفة المزيد عن خدمات ${company.nameAr}.`)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs sm:text-sm font-bold backdrop-blur-md transition-all active:scale-95"
@@ -123,26 +131,27 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* 2. قصتنا */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {/* 2. Story / About Us Detailed Section */}
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             <div className="lg:col-span-6 space-y-6 text-right">
-              <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-100/80 border border-emerald-300/60 text-emerald-900 text-xs font-bold">
-                <Compass className="w-3.5 h-3.5 text-emerald-700" />
-                <span>قصتنا</span>
+              <div>
+                <span className="text-xs font-bold text-amber-600 bg-amber-100 px-3 py-1 rounded-full">
+                  قصتنا ورؤيتنا
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-emerald-950 mt-3 mb-4">
+                  نصنع بيئة خضراء تلهمك كل يوم
+                </h2>
+                <div className="w-12 h-1 bg-amber-500 rounded-full mb-6" />
               </div>
-
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-emerald-950 leading-tight">
-                شغفنا يبدأ من المساحة
-              </h2>
 
               <div className="space-y-4 text-sm sm:text-base text-gray-700 leading-relaxed">
                 <p>
-                  بدأت فكرة <strong className="text-emerald-900">زهرة الورود</strong> من رؤية بسيطة: أن تتحول كل مساحة خارجية إلى مكان جميل وعملي يعكس ذوق صاحبه واحتياجاته.
+                  بدأت فكرة <strong className="text-emerald-900">{company.nameAr}</strong> من رؤية بسيطة: أن تتحول كل مساحة خارجية إلى مكان جميل وعملي يعكس ذوق صاحبه واحتياجاته.
                 </p>
                 <p>
-                  نعمل على تقديم حلول متكاملة لتنسيق وتصميم الحدائق في الرياض، بدءًا من فهم طبيعة الموقع واحتياجات العميل، مرورًا بالتخطيط وااختيار العناصر المناسبة، وصولًا إلى التنفيذ والتنسيق والصيانة.
+                  نعمل على تقديم حلول متكاملة لتنسيق وتصميم الحدائق في الرياض وكافة مناطق المملكة، بدءًا من فهم طبيعة الموقع واحتياجات العميل، مرورًا بالتخطيط وااختيار العناصر المناسبة، وصولًا إلى التنفيذ والتنسيق والصيانة.
                 </p>
                 <p>
                   نحن لا ننظر إلى الحديقة كعناصر منفصلة، بل نتعامل معها كمساحة متكاملة يجب أن تتناغم فيها النباتات والعشب والممرات والإضاءة والجلسات والعناصر المائية.
@@ -154,15 +163,15 @@ export default function AboutPage() {
               <div className="relative h-80 sm:h-96 rounded-3xl overflow-hidden shadow-2xl border border-gray-200">
                 <Image
                   src="/images/why-us-fountain.jpg"
-                  alt="قصة زهرة الورود لتنسيق الحدائق بالرياض"
+                  alt={`قصة ${company.nameAr} لتنسيق الحدائق بالسعودية`}
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent" />
                 <div className="absolute bottom-6 right-6 left-6 text-white text-right">
-                  <span className="text-xs font-bold text-amber-300 block mb-1">هوية زهرة الورود</span>
-                  <h3 className="text-lg font-bold">رؤية معمارية شاملة لكل مساحة خارجية بالرياض</h3>
+                  <span className="text-xs font-bold text-amber-300 block mb-1">هوية {company.nameAr}</span>
+                  <h3 className="text-lg font-bold">رؤية معمارية شاملة لكل مساحة خارجية</h3>
                 </div>
               </div>
             </div>
@@ -182,12 +191,12 @@ export default function AboutPage() {
                 </div>
 
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-emerald-950 tracking-tight mb-2">
-                  شركة زهرة الورود لتنسيق الحدائق بالرياض
+                  مؤسسة {company.nameAr} {company.subtitleAr}
                 </h2>
                 <div className="w-12 h-1 bg-amber-500 rounded-full mb-6" />
 
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
-                  نُعد شركة زهرة الورود من الشركات الرائدة في مجال تنسيق الحدائق وتصميم المساحات الخارجية في مدينة الرياض. نحن نجمع بين الخبرة الطويلة واللمسة الفنية المبدعة لنقدم لعملائنا أفضل الحلول لتجميل منازلهم وفللهم.
+                  نُعد مؤسسة {company.nameAr} من المؤسسات الرائدة في مجال تنسيق الحدائق وتصميم المساحات الخارجية في السعودية. نحن نجمع بين الخبرة الطويلة واللمسة الفنية المبدعة لنقدم لعملائنا أفضل الحلول لتجميل منازلهم وفللهم.
                 </p>
 
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-8">
@@ -246,9 +255,8 @@ export default function AboutPage() {
               <div className="relative h-[380px] sm:h-[480px] rounded-3xl overflow-hidden shadow-2xl border border-gray-200/90">
                 <Image
                   src="/images/why-us-fountain.jpg"
-                  alt="شركة زهرة الورود لتنسيق الحدائق بالرياض"
+                  alt={`مؤسسة ${company.nameAr} ${company.subtitleAr}`}
                   fill
-                  priority
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                 />
@@ -293,7 +301,7 @@ export default function AboutPage() {
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-100/80 border border-emerald-300/60 text-emerald-900 text-xs font-bold mb-3">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-700" />
+              <Compass className="w-3.5 h-3.5 text-emerald-700" />
               <span>ماذا نقدم؟</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-emerald-950">
@@ -316,7 +324,7 @@ export default function AboutPage() {
 
             <div className="bg-white p-7 rounded-3xl border border-gray-200/80 shadow-sm hover:shadow-xl transition-all space-y-3 text-right">
               <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
-                <Sparkles className="w-5 h-5" />
+                <Layers className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-bold text-emerald-950">العشب الطبيعي والصناعي</h3>
               <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
@@ -422,11 +430,11 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* 7. لماذا زهرة الورود؟ */}
+        {/* 7. لماذا مفتاح التنسيق؟ */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-emerald-950">
-              لماذا تختار زهرة الورود؟
+              لماذا تختار {company.nameAr}؟
             </h2>
             <div className="w-12 h-0.5 bg-amber-500 mx-auto rounded-full mt-3" />
           </div>
@@ -686,25 +694,20 @@ export default function AboutPage() {
                 اطلب معاينة مجانية
               </WhatsAppButton>
 
-              <a
-                href={getWhatsAppUrl("مرحبًا، أود طلب معاينة مجانية وتنسيق حديقتي بالرياض.")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#25D366] text-white text-xs sm:text-sm font-bold shadow-lg hover:bg-[#20ba5a] transition-all"
+              <Link
+                href="/contact/"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white text-emerald-950 text-xs sm:text-sm font-bold shadow-lg hover:bg-emerald-50 transition-all"
               >
-                <MessageCircle className="w-4 h-4" />
-                <span>تواصل عبر واتساب</span>
-              </a>
+                <span>حجز موعد واستشارة ميدانية</span>
+              </Link>
 
-              {company.phone && (
-                <a
-                  href={`tel:${company.phone}`}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs sm:text-sm font-bold backdrop-blur-md transition-all"
-                >
-                  <Phone className="w-4 h-4 text-emerald-300" />
-                  <span>اتصل بنا ({company.phone})</span>
-                </a>
-              )}
+              <Link
+                href="/services/"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs sm:text-sm font-bold backdrop-blur-md transition-all"
+              >
+                <span>استعراض كافة الخدمات</span>
+                <ArrowLeft className="w-4 h-4 text-amber-400" />
+              </Link>
             </div>
           </div>
         </section>

@@ -1,5 +1,6 @@
 import React from "react";
-import { ShieldCheck, Compass, Award, MapPin, Sparkles } from "lucide-react";
+import Link from "next/link";
+import { ShieldCheck, Compass, Award, MapPin, ArrowLeft } from "lucide-react";
 
 export const AboutTrust: React.FC = () => {
   const trustPillars = [
@@ -34,8 +35,8 @@ export const AboutTrust: React.FC = () => {
           {/* Text Column */}
           <div className="lg:col-span-6 flex flex-col text-right">
             <div className="inline-flex items-center gap-2 self-start px-3.5 py-1 rounded-full bg-emerald-100/70 text-emerald-900 text-xs font-bold mb-4">
-              <Sparkles className="w-4 h-4 text-emerald-700" />
-              <span>من نحن — زهرة الورود</span>
+              <ShieldCheck className="w-4 h-4 text-emerald-700" />
+              <span>من نحن — مؤسسة مفتاح التنسيق</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-extrabold text-emerald-950 leading-tight mb-6">
@@ -43,16 +44,26 @@ export const AboutTrust: React.FC = () => {
             </h2>
 
             <p className="text-base text-gray-700 leading-relaxed mb-4">
-              شركة <strong className="text-emerald-900">زهرة الورود لتنسيق الحدائق بالرياض</strong> هي وجهتك المعتمدة لتحويل الأحواش والمساحات الخارجية لفلل ومنازل واستراحات الرياض إلى حدائق خضراء مميزة تجمع بين الجمال والوظيفة العملية.
+              مؤسسة <strong className="text-emerald-900">مفتاح التنسيق لتنسيق الحدائق بالسعودية</strong> هي وجهتك المعتمدة لتحويل الأحواش والمساحات الخارجية لفلل ومنازل واستراحات السعودية إلى حدائق خضراء مميزة تجمع بين الجمال والوظيفة العملية.
             </p>
 
             <p className="text-base text-gray-600 leading-relaxed mb-8">
               نحن نؤمن بأن الحديقة ليست مجرد ثيل ونباتات، بل هي متنفس يعكس أسلوب حياتك ويوفر لك ولأسرتك جلسة مريحة. لذا نقدم خدمات متكاملة تشمل التخطيط، تركيب العشب الطبيعي والصناعي، شبكات الري المتطورة، والنوافير والشلالات بأسلوب مدروس وشفاف.
             </p>
 
-            <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200/60 text-emerald-900 text-sm font-medium flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-emerald-700 shrink-0" />
-              <span><strong>رؤيتنا:</strong> تقديم خدمات تنسيق وتصميم حدائق بجودة عالية وأسعار واضحة تلبي تطلعات عملائنا في مختلف أحياء الرياض.</span>
+            <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200/60 text-emerald-900 text-sm font-medium flex items-center gap-2 mb-6">
+              <Award className="w-4 h-4 text-emerald-700 shrink-0" />
+              <span><strong>رؤيتنا:</strong> تقديم خدمات تنسيق وتصميم حدائق بجودة عالية وأسعار واضحة تلبي تطلعات عملائنا في مختلف مدن ومناطق المملكة.</span>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <Link
+                href="/about/"
+                className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-emerald-950 bg-amber-400 hover:bg-amber-300 px-6 py-3 rounded-xl shadow-sm transition-all"
+              >
+                <span>تعرف أكثر عن المؤسسة وفريقنا</span>
+                <ArrowLeft className="w-4 h-4 text-emerald-950" />
+              </Link>
             </div>
           </div>
 

@@ -51,7 +51,7 @@ export const servicesData: ServiceItem[] = [
     title: "العشب الصناعي",
     shortDescription: "توريد وتركيب العشب الصناعي للمنازل والاستراحات.",
     description: "توريد وتركيب العشب الصناعي عالي الجودة للمنازل والاستراحات والمساحات الخارجية بمواصفات ممتازة ومقاومة للحرارة.",
-    iconName: "Sparkles",
+    iconName: "Layers",
     image: "/images/services/artificial-turf.jpg",
     whatsappMessage: "مرحبًا، أرغب في الاستفسار عن خدمة تركيب العشب الصناعي بالرياض.",
     features: [
@@ -144,7 +144,7 @@ export const quickServicesData: QuickServiceItem[] = [
     id: "artificial-turf",
     title: "العشب الصناعي",
     description: "ثيل صناعي عالي الجودة ومقاوم للحرارة.",
-    iconName: "Sparkles",
+    iconName: "Layers",
     whatsappMessage: "مرحبًا، أرغب في الاستفسار عن خدمة العشب الصناعي بالرياض."
   },
   {
