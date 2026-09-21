@@ -148,21 +148,17 @@ export const Footer: React.FC = () => {
 
         {/* Developer Credit */}
         <div className="mt-6 pt-5 border-t border-emerald-900/60 text-center" dir="ltr">
-          <p className="text-[11px] sm:text-xs text-emerald-300/60 tracking-wide font-medium">
-            Designed &amp; Developed by <span className="text-emerald-200/80 font-semibold">Rabea Shaban</span>
-          </p>
-          <div className="mt-1">
-            <a
-              href="https://wa.me/201156807072"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="تواصل مع ربيع شعبان عبر واتساب"
-              className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-mono font-bold text-amber-400/80 hover:text-amber-300 transition-colors tracking-wider group"
-            >
-              <MessageCircle className="w-3 h-3 text-[#25D366] group-hover:scale-110 transition-transform" />
-              <span>01156807072</span>
-            </a>
-          </div>
+          <a
+            href="https://www.rabea-shaban.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-1 text-[11px] sm:text-xs text-emerald-300/60 hover:text-emerald-100 transition-all duration-200 tracking-wide group"
+          >
+            <span>Designed &amp; Built by</span>
+            <span className="text-emerald-200/90 group-hover:text-amber-300 font-semibold transition-colors duration-200">
+              Rabea Shaban
+            </span>
+          </a>
         </div>
 
       </div>
